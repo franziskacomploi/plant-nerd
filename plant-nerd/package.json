@@ -1,0 +1,19 @@
+{
+  "name": "plant-nerd",
+  "version": "1.0.0",
+  "description": "Ironhack Project 2 - Plant Nerd 🌱",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franziskapendzialek/plant-nerd.git"
+  },
+  "author": "Julia Häußler & Franziska Pendzialek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franziskapendzialek/plant-nerd/issues"
+  },
+  "homepage": "https://github.com/franziskapendzialek/plant-nerd#readme"
+}
