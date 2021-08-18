@@ -4,7 +4,9 @@
   "description": "Ironhack Project 2 - Plant Nerd 🌱",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "node ./bin/www",
+    "test": "test",
+    "dev": "DEBUG=starter-code:* nodemon --inspect ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,18 @@
   "bugs": {
     "url": "https://github.com/franziskapendzialek/plant-nerd/issues"
   },
-  "homepage": "https://github.com/franziskapendzialek/plant-nerd#readme"
+  "homepage": "https://github.com/franziskapendzialek/plant-nerd#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "hbs": "^4.1.2",
+    "http": "0.0.1-security",
+    "logger": "0.0.1",
+    "mongoose": "^5.13.5",
+    "morgan": "^1.10.0",
+    "node-sass-middleware": "^0.11.0",
+    "nodemon": "^2.0.12"
+  }
 }
