@@ -12,7 +12,7 @@ const PlantSchema = new Schema({
     unique: true,
     required: true,
   }, 
-  foundOnDate: Date, 
+  foundOnDate: String, 
   season: String,
 });
 
