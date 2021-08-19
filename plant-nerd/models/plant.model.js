@@ -5,11 +5,6 @@ const PlantSchema = new Schema({
     type: String,
     required: true,
   },
-  latinName: {
-    type: String,
-    unique: true,
-    required: true,
-  },
   description: String, 
   plantImg: String,
   location: {
@@ -17,6 +12,8 @@ const PlantSchema = new Schema({
     unique: true,
     required: true,
   }, 
+  foundOnDate: Date, 
+  season: String,
 });
 
 const Plant = model("Plant", PlantSchema, "plants");
