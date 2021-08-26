@@ -11,7 +11,6 @@ const CommentSchema = new Schema({
     required: true,
   },
   author: { type: Schema.Types.ObjectId, ref: "User" },
-  plant: { type: Schema.Types.ObjectId, ref: "Plant" },
 });
 
 const Comment = model("Comment", CommentSchema, "comments");

@@ -14,6 +14,8 @@ const PlantSchema = new Schema({
   }, 
   foundOnDate: String, 
   season: String,
+  author: { type: Schema.Types.ObjectId, ref: "User" },
+  comments: [{ type: Schema.Types.ObjectId, ref: "Comments" }],
 });
 
 const Plant = model("Plant", PlantSchema, "plants");
