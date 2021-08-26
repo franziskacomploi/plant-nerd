@@ -9,10 +9,9 @@ const PlantSchema = new Schema({
   plantImg: String,
   location: {
     type: String,
-    unique: true,
     required: true,
   }, 
-  foundOnDate: String, 
+  foundOnDate: Date, 
   season: String,
   author: { type: Schema.Types.ObjectId, ref: "User" },
   comments: [{ type: Schema.Types.ObjectId, ref: "Comments" }],

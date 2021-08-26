@@ -12,7 +12,7 @@ const UserSchema = new Schema({
   },
   description: String,
   favPlant: String,
-  birthday: String,
+  birthday: Date,
   firstName: String,
 });
 
