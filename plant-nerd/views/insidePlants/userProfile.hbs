@@ -1,0 +1,52 @@
+<div>
+
+    <h1>name</h1>
+
+    <h2>age</h2>
+
+    <h2>Favourite Plant</h2>
+
+    <h3>Description</h3>
+
+    <a>Edit</a>
+    <a>Delete</a>
+
+
+
+    <h3>Your Plants</h3>
+    <a>Add a new Plant</a>
+
+    <h3>Your contacts</h3>
+
+</div>
+
+{{#if userInSession}}
+    <h2>{{ userInSession.username }}</h2>
+    
+    <img src="" alt="User Photo">
+
+    <img src="" alt="Birthday Cake Plant Icon">
+    <h3>{{ userInSession.birthday }}</h3>
+
+    <img src="" alt="Plant Icon">
+    <h3>{{ userInSession.favPlant }}</h3>
+
+    <img src="" alt=""> 
+    <h3>{{ userInSession.description }}</h3>
+
+
+
+
+    <button>
+        <a href="/userProfile">Reload the page</a>
+    </button>
+
+    <a href="/main">MAIN</a>
+    <br>
+    <a href="/private">PRIVATE</a>
+{{else}}
+  <p>You still need to log in.</p>
+{{/if}}
+
+
+
