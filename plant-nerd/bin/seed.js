@@ -7,7 +7,7 @@ const connectDB = require('../db/db');
 const users = [
   {
     username: 'Sharky354',
-    password: '129uföjsdalhfu',
+    password: '$2a$10$81GOlxKGkNVD3gKMLJ51AelzCyhOBPndTF6b.LOdaE/H6X35DfXCW', // Franz
     description: "Hi, I'm scared of sharks but I love plants!",
     favPlant: 'Cow Plant',
     birthday: new Date('1990/01/01'),
@@ -15,7 +15,7 @@ const users = [
   },
   {
     username: 'Sunny7612',
-    password: '129uföjsdalhfu',
+    password: '$2a$10$81GOlxKGkNVD3gKMLJ51AelzCyhOBPndTF6b.LOdaE/H6X35DfXCW', // Franz
     description: 'Plants are my best friends!',
     favPlant: 'Sunflower',
     birthday: new Date('1990/01/01'),
