@@ -123,9 +123,6 @@ connectDB()
       for (let i = 4; i < 8; i++) {
         comments[i].author = user2;
       }
-
-      let user1 = users[0]._id;
-      let user2 = users[1]._id;
       plants[0].author = user1;
       plants[1].author = user1;
       plants[2].author = user2;
