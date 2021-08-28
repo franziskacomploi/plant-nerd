@@ -1,7 +1,14 @@
-const isLoggedIn = (req, res) => {
+const checkLoggedIn = (req, res) => {
   if (!req.session.currentUser) {
-    return res.redirect("/login");
+    return res.redirect('/login');
   }
 };
 
-module.exports = { isLoggedIn };
+const isLoggedIn = (req, res) => {
+  if (!req.session.currentUser) {
+    return false;
+  }
+  return true;
+};
+
+module.exports = {checkLoggedIn, isLoggedIn};

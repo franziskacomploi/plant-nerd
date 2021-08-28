@@ -99,65 +99,56 @@ const plants = [
   },
 ];
 
-connectDB().then(() => {
-  User.deleteMany().then(() => {
-    Plant.deleteMany().then(() => {
-      Comment.deleteMany().then(() => {
-        User.create(users)
-          .then((users) => {
-            console.log(`Created ${users.length} Users.`);
-          })
-          .then(() => {
-            User.find().then((users) => {
-              let user1 = users[0]._id;
-              let user2 = users[1]._id;
-              for (let i = 0; i <= 4; i++) {
-                comments[i].author = user1;
-              }
-              for (let i = 5; i <= 8; i++) {
-                comments[i].author = user2;
-              }
-              Comment.create(comments).then((comments) => {
-                console.log(`Created ${comments.length} Comments.`);
-              });
-            });
-          })
-          .then(() => {
-            User.find()
-              .then((users) => {
-                let user1 = users[0]._id;
-                let user2 = users[1]._id;
-                plants[0].author = user1;
-                plants[1].author = user1;
-                plants[2].author = user2;
-                plants[3].author = user2;
-              })
-              .then(() => {
-                Comment.find()
-                  .then((comments) => {
-                    let comments1 = [comments[0], comments[1]];
-                    let comments2 = [comments[2], comments[3]];
-                    let comments3 = [comments[4], comments[5]];
-                    let comments4 = [comments[6], comments[7]];
-                    plants[0].comments = comments1;
-                    plants[1].comments = comments2;
-                    plants[2].comments = comments3;
-                    plants[3].comments = comments4;
-                  })
-                  .then(() => {
-                    Plant.create(plants)
-                      .then((plants) => {
-                        console.log(`Created ${plants.length} Plants.`);
-                      })
-                      .then(() => {
-                        mongoose.connection.close();
-                      });
-                  });
-              });
+connectDB()
+  .then(() => {
+    return User.deleteMany();
+  })
+  .then(() => {
+    return Plant.deleteMany();
+  })
+  .then(() => {
+    return Comment.deleteMany();
+  })
+  .then(() => {
+    return User.create(users);
+  })
+  .then((users) => {
+    console.log(`Created ${users.length} Users.`);
+    User.find().then((users) => {
+      let user1 = users[0]._id;
+      let user2 = users[1]._id;
+      for (let i = 0; i < 5; i++) {
+        comments[i].author = user1;
+      }
+      for (let i = 4; i < 8; i++) {
+        comments[i].author = user2;
+      }
+
+      let user1 = users[0]._id;
+      let user2 = users[1]._id;
+      plants[0].author = user1;
+      plants[1].author = user1;
+      plants[2].author = user2;
+      plants[3].author = user2;
+
+      Comment.create(comments).then((comments) => {
+        console.log(`Created ${comments.length} Comments.`);
+        Comment.find().then((comments) => {
+          let comments1 = [comments[0], comments[1]];
+          let comments2 = [comments[2], comments[3]];
+          let comments3 = [comments[4], comments[5]];
+          let comments4 = [comments[6], comments[7]];
+          plants[0].comments = comments1;
+          plants[1].comments = comments2;
+          plants[2].comments = comments3;
+          plants[3].comments = comments4;
+          Plant.create(plants).then((plants) => {
+            console.log(`Created ${plants.length} Plants.`);
+            mongoose.connection.close();
           });
+        });
       });
     });
   });
-});
 
 // run $node bin/seed.js to get the seed into the database!

@@ -11,11 +11,14 @@
       <ul>
         <li>
           <a href="/">Home</a>
-          <a href="/login">Login</a>
-          <a href="/signup">Sign Up</a>
+          {{#if isLoggedIn}}
           <form id="logout-form" action="/logout" method="POST">
             <button>Logout</button>
           </form>
+          {{else}}
+          <a href="/login">Login</a>
+          <a href="/signup">Sign Up</a>
+          {{/if}}
         </li>
       </ul>
     </nav>
