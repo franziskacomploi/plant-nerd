@@ -1,0 +1,41 @@
+
+
+{{#if userInSession}}
+    <h1>{{userInSession.firstName}} (aka {{ userInSession.username }})</h1>
+    
+    <img src="" alt="User Photo">
+
+    <img src="" alt="Birthday Cake Plant Icon">
+    <h3>{{ userInSession.birthday }}</h3>
+
+    <img src="" alt="Plant Icon">
+    <h2>My favourite plant:</h2>
+    <h3>{{ userInSession.favPlant }}</h3>
+
+    <img src="" alt="About User Icon">
+    <h2>About me:</h2>
+    <h3>{{ userInSession.description }}</h3>
+
+    <div class="profile-action-container">
+        <div class="profile-action p-3">
+            <a href="" class="btn-light p-2">Edit profile</a>
+        </div>
+
+        <div class="profile-action p-3">
+            <a href="/deleteProfile" class="btn-light p-2">Delete profile</a>
+        </div>
+    </div>
+
+    
+
+  
+
+    {{!-- <a href="/main">MAIN</a>
+    <br>
+    <a href="/private">PRIVATE</a> --}}
+{{else}}
+  <p>You still need to log in.</p>
+{{/if}}
+
+
+
