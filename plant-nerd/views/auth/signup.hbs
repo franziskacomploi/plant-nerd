@@ -1,7 +1,7 @@
 <section id="signup" class="p-3 signup-page">
   <div class="container-fluid signup-form max-w">
     <h2>Sign Up</h2>
-    <form action="/signup" method="POST">
+    <form action="/signup" method="POST" enctype="multipart/form-data">
 
       <div class="mb-3">
         <label for="input-username" class="form-label">Username*</label>
@@ -46,8 +46,8 @@
       </div>
 
       <div class="mb-4">
-        <label for="formFile" class="form-label">Upload your best selfie!</label>
-        <input class="form-control" type="file" id="formFile">
+        <label for="profilePic" class="form-label">Upload your best selfie!</label>
+        <input class="form-control" type="file" name="profilePic">
       </div>
 
       <div class="btn-container">

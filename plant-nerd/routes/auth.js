@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
+const fileUploader = require('../configs/cloudinary.config');
 
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
@@ -13,15 +14,7 @@ const User = require('../models/User.model');
 
 router.get('/signup', (req, res) => res.render('auth/signup'));
 
-router.post('/signup', (req, res, next) => {
-  const {username, password} = req.body;
-
-  if (!username || !password) {
-    res.render('auth/signup', {
-      errorMessage: 'You need a username and a password to join.',
-    });
-    return;
-  }
+router.post('/signup', fileUploader.single('profilePic'), (req, res, next) => {
 
   const {username, password, description, favPlant, birthday, firstName} =
     req.body;
@@ -40,9 +33,10 @@ router.post('/signup', (req, res, next) => {
       return User.create({
         username,
         password: hashedPassword,
+        profilePic: req.file.path,
         description,
         favPlant,
-        birthday: moment(birthday).format('LL'),
+        birthday,
         firstName,
       });
     })
