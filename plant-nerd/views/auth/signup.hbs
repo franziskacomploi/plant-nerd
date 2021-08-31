@@ -1,16 +1,61 @@
-<div id="signup">
-  <h2>Signup</h2>
-  <form action="/signup" method="POST">
-    <label for="input-username">Username</label>
-    <input type="text" id="input-username" name="username" placeholder="Your username" />
+<section id="signup" class="p-3 signup-page">
+  <div class="container-fluid signup-form max-w">
+    <h2>Sign Up</h2>
+    <form action="/signup" method="POST">
 
-    <label for="input-password">Password</label>
-    <input type="password" name="password" id="input-password" placeholder="********" />
+      <div class="mb-3">
+        <label for="input-username" class="form-label">Username*</label>
+        <input type="text" class="form-control" name="username" id="input-username" placeholder"Choose a username">
+        <div class="form-text subtext">Your username will be visibile for members.</div>
+      </div>
 
-    <button type="submit">Create account</button>
+      <div class="mb-3">
+        <label for="input-password" class="form-label">Password*</label>
+        <input type="password" class="form-control" name="password" id="input-password" placeholder="*********">
+        <div class="form-text subtext">Password and username are mandatory.</div>
+      </div>
 
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
-</div>
+      {{#if errorMessage}}
+        <p class="error mb-5">{{errorMessage}}</p>
+      {{/if}}
+
+
+      <h4 class="mb-3 sub-head">Tell us something about yourself - don't worry, you can still change it later.</h4>
+
+      <div class="mb-3">
+        <label for="input-favPlant">What's your favourite plant?</label>
+        <input type="text" class="form-control mt-2" name="favPlant" id="input-favPlant" placeholder="Lavender" />
+      </div>
+
+
+      <div class="mb-3">
+        <label for="input-firstName">How should we call you? (Aka an actual surname)</label>
+        <input type="text" class="form-control mt-2" name="firstName" id="input-firstName" placeholder="Franz" />
+      </div>
+
+
+      <div class="mb-3">
+        <label for="input-birthday">When is your birthday?</label>
+        <input type="date" class="form-control mt-2" name="birthday" id="input-birthday" placeholder="" />
+      </div>
+
+
+      <div class="mb-3">
+        <label for="input-description">What else do want the people to know?</label>
+        <input class="form-control mt-2" name="description" id="input-description" placeholder="Travelling and plants are my life - so original. What's next? Coffee addict?" />
+      </div>
+
+      <div class="mb-4">
+        <label for="formFile" class="form-label">Upload your best selfie!</label>
+        <input class="form-control" type="file" id="formFile">
+      </div>
+
+      <div class="btn-container">
+        <button type="submit" class="btn btn-light w-25">Submit</button>
+      </div>
+    
+
+
+    </form>
+  </div>
+</section>

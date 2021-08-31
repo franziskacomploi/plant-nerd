@@ -1,16 +1,33 @@
-<div id="form">
-  <h2>Login</h2>
-  <form action="/login" method="POST">
-    <label for="input-username">Username</label>
-    <input type="text" id="input-username" name="username" placeholder="Your username" />
+<section id="login" class="p-3 signup-page">
+  <div class="container-fluid signup-form max-w">
+    <h2>Log In</h2>
+    <form action="/login" method="POST">
+
+      <div class="mb-3">
+        <label for="input-username" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username" id="input-username">
+       </div>
+
+      <div class="mb-3">
+        <label for="input-password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="input-password" placeholder="*********">
+      </div>
+
+      {{#if errorMessage}}
+        <p class="error mb-3">{{errorMessage}}</p>
+      {{/if}}
+
+      <div class="btn-container">
+        <button type="submit" class="btn btn-light w-25">Login</button>
+      </div>
+      
  
-    <label for="input-password">Password</label>
-    <input type="password" name="password" id="input-password" placeholder="********" />
- 
-    <button type="submit">Login</button>
- 
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
-</div>
+
+    </form>
+  </div>
+</section>
+
+
+
+
+

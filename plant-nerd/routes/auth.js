@@ -5,6 +5,8 @@ const router = express.Router();
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 
+const moment = require('moment');
+
 const User = require('../models/User.model');
 
 // SIGN UP
@@ -21,6 +23,16 @@ router.post('/signup', (req, res, next) => {
     return;
   }
 
+  const {username, password, description, favPlant, birthday, firstName} =
+    req.body;
+
+  if (!username || !password) {
+    res.render('auth/signup', {
+      errorMessage: 'You need a username and a password to join.',
+    });
+    return;
+  }
+
   bcryptjs
     .genSalt(saltRounds)
     .then((salt) => bcryptjs.hash(password, salt))
@@ -28,6 +40,10 @@ router.post('/signup', (req, res, next) => {
       return User.create({
         username,
         password: hashedPassword,
+        description,
+        favPlant,
+        birthday: moment(birthday).format('LL'),
+        firstName,
       });
     })
     .then((userFromDB) => {
@@ -41,8 +57,6 @@ router.post('/signup', (req, res, next) => {
         res.status(500).render('auth/signup', {
           errorMessage: 'Every leaf is unique and so should be your username.',
         });
-      } else {
-        next(error);
       }
     });
 });

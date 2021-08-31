@@ -36,6 +36,8 @@ require('./configs/session.config')(app);
 // default value for title local
 app.locals.title = 'Plant Nerd - An Ironhack Project';
 
+app.locals.moment = require('moment');
+
 const {isLoggedIn} = require('./routes/guards/guards');
 app.use((req, res, next) => {
   const result = isLoggedIn(req);
@@ -51,5 +53,7 @@ app.use('/', auth);
 
 const plants = require('./routes/plants');
 app.use('/', plants);
+const profile = require('./routes/profile');
+app.use('/', profile);
 
 module.exports = app;
