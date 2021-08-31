@@ -5,6 +5,8 @@ const router = express.Router();
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 
+const moment = require('moment');
+
 const User = require('../models/User.model');
 
 
@@ -14,13 +16,17 @@ router.get('/signup', (req, res) => res.render('auth/signup'));
 
 router.post('/signup', (req, res, next) => {
 
-  const { username, password } = req.body;
+  const { username, password, description, favPlant, birthday, firstName } = req.body;
  
     if (!username || !password) {
       res.render('auth/signup', { errorMessage: 'You need a username and a password to join.' });
       return;
     }
 
+    // if (birthday) {
+    //   let easyBday = moment(birthday).format('LL')
+    //   return easyBday
+    // }
 
     bcryptjs
       .genSalt(saltRounds)
@@ -28,7 +34,11 @@ router.post('/signup', (req, res, next) => {
       .then(hashedPassword => {
         return User.create({
           username,
-          password: hashedPassword
+          password: hashedPassword,
+          description,
+          favPlant,
+          birthday: moment(birthday).format('LL'),
+          firstName
         });
       })
       .then(userFromDB => {

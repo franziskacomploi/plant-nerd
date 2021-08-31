@@ -1,0 +1,194 @@
+/* grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+); */
+
+/* colors:
+Purple bright
+#9D98C1
+
+Purple
+#57509A
+
+Purple dark
+#3C405C
+
+Green light
+#A3B4B3
+
+Green
+#4C7884
+
+Green dark 
+#324628
+
+Beige
+#D7D2CA */
+
+/* .purple-light {
+    background-color: #9D98C1;
+}
+.purple {
+    background-color: #57509A;
+}
+.purple-dark {
+    background-color: #3C405C;
+}
+.green-light{
+    background-color: #A3B4B3;
+}
+.green{
+    background-color: #4C7884;
+}
+.green-dark{
+    background-color: #324628;
+} */
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #4C7884;
+
+}
+
+.error {
+    background-color: #A3B4B3;
+    color: #324628;
+    border: 1px solid #4C7884;
+    text-align: center;
+}
+
+/* LANDING PAGE */
+
+nav {
+    background-color: #9D98C1;
+}
+
+nav a {
+    color: #3C405C;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #D7D2CA
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.loggedin-links {
+    display: flex;
+    align-items: center;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-text {
+    background-color: #3C405C;
+    color: #D7D2CA;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* BUTTONS */
+
+.btn-dark {
+    background-color: #4C7884;
+    border-color: #4C7884;
+    color: #D7D2CA;
+    text-decoration: none;
+    border-radius: 70%;
+    display: inline-block;
+}
+
+.btn-dark:hover {
+    background-color: #9D98C1;
+    border-color: #9D98C1;
+    color: #3C405C;
+}
+
+.btn-light {
+    background-color: #A3B4B3;
+    color: #324628;
+    text-decoration: none;
+    border-radius: 70%;
+    display: inline-block;
+    border-color: #A3B4B3;
+}
+
+.btn-light:hover {
+    background-color: #324628;
+    color: #A3B4B3;
+}
+
+.btn-logout {
+    background-color: #3C405C;
+    color: #D7D2CA;
+}
+
+.btn-logout:hover {
+    background-color: #4C7884;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* SIGN UP AND LOG IN PAGE  */
+
+.signup-page {
+    background-color: #3C405C;
+    color: #9D98C1;
+}
+
+.subtext {
+    color: #D7D2CA;
+}
+
+.sub-head {
+    text-align: center;
+}
+
+.login-page {
+    background-color: #3C405C;
+    color: #9D98C1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* PROFILE PAGE */
+
+.profile-action-container {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+/* DELETE PROFILE PAGE */
+
+#deleteProfile {
+    display: flex;
+    justify-content: center;
+    color: #9D98C1;
+}
+
+.delete-profile {
+    background-color: #3C405C;
+    border: 4px solid #9D98C1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
