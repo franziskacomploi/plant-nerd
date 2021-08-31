@@ -51,7 +51,9 @@ app.use('/', index);
 const auth = require('./routes/auth');
 app.use('/', auth);
 
-const profile = require('./routes/profile')
-app.use('/', profile)
+const plants = require('./routes/plants');
+app.use('/', plants);
+const profile = require('./routes/profile');
+app.use('/', profile);
 
 module.exports = app;

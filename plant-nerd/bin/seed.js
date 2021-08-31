@@ -8,6 +8,8 @@ const users = [
   {
     username: 'Sharky354',
     password: '$2a$10$81GOlxKGkNVD3gKMLJ51AelzCyhOBPndTF6b.LOdaE/H6X35DfXCW', // Franz
+    profilePic:
+      'https://res.cloudinary.com/dq66nu4hm/image/upload/v1630155565/plant-nerd/gerald-schombs-GBDkr3k96DE-unsplash_l5n4ak.jpg',
     description: "Hi, I'm scared of sharks but I love plants!",
     favPlant: 'Cow Plant',
     birthday: new Date('1990/01/01'),
@@ -16,6 +18,8 @@ const users = [
   {
     username: 'Sunny7612',
     password: '$2a$10$81GOlxKGkNVD3gKMLJ51AelzCyhOBPndTF6b.LOdaE/H6X35DfXCW', // Franz
+    profilePic:
+      'https://res.cloudinary.com/dq66nu4hm/image/upload/v1630155626/plant-nerd/aaron-burden-2IzoIHBgYAo-unsplash_jva1ny.jpg',
     description: 'Plants are my best friends!',
     favPlant: 'Sunflower',
     birthday: new Date('1990/01/01'),
