@@ -15,9 +15,15 @@ const User = require('../models/User.model');
 router.get('/signup', (req, res) => res.render('auth/signup'));
 
 router.post('/signup', fileUploader.single('profilePic'), (req, res, next) => {
-
   const {username, password, description, favPlant, birthday, firstName} =
     req.body;
+
+  if (!username || !password) {
+    res.render('auth/signup', {
+      errorMessage: 'You need a username and a password to join.',
+    });
+    return;
+  }
 
   if (!username || !password) {
     res.render('auth/signup', {
