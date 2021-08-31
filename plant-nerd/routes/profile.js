@@ -4,7 +4,14 @@ const router = express.Router();
 const User = require('../models/User.model');
 
 router.get('/profile', (req, res) => {
-  res.render('insidePlants/profile', {userInSession: req.session.currentUser});
+  let d = new Date(req.session.currentUser.birthday)
+  let getDate = d.getDate()
+  let getMonth = d.getMonth()
+  let getYear = d.getFullYear()
+let birthDate = `${getDate}.${getMonth}.${getYear}`
+
+console.log("birthDate ====>",birthDate)
+  res.render('insidePlants/profile', {userInSession: req.session.currentUser,birthDate});
 });
 
 router.get('/deleteProfile', (req, res) => {
