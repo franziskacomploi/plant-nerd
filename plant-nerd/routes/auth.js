@@ -14,7 +14,8 @@ const User = require('../models/User.model');
 router.get('/signup', (req, res) => res.render('auth/signup'));
 
 router.post('/signup', (req, res, next) => {
-  const {username, password} = req.body;
+  const {username, password, description, favPlant, birthday, firstName} =
+    req.body;
 
   if (!username || !password) {
     res.render('auth/signup', {
@@ -22,9 +23,6 @@ router.post('/signup', (req, res, next) => {
     });
     return;
   }
-
-  const {username, password, description, favPlant, birthday, firstName} =
-    req.body;
 
   if (!username || !password) {
     res.render('auth/signup', {
