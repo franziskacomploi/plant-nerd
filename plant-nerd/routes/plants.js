@@ -5,7 +5,7 @@ const fileUploader = require('../configs/cloudinary.config');
 const Plant = require('../models/plant.model');
 
 router.get('/plants/create', redirectLoggedIn, (req, res, next) => {
-  res.render('plants/createPost');
+  res.render('insidePlants/createPost');
 });
 
 router.post('/plants/create', fileUploader.single('plantImg'), (req, res) => {
