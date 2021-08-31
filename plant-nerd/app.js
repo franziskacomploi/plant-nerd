@@ -49,4 +49,7 @@ app.use('/', index);
 const auth = require('./routes/auth');
 app.use('/', auth);
 
+const plants = require('./routes/plants');
+app.use('/', plants);
+
 module.exports = app;

@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Plant Nerd - An Ironhack Project</title>
-    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="/styles/styles.css" />
   </head>
   <body>
     <nav>
@@ -12,6 +12,7 @@
           {{#if isLoggedIn}}
           <form id="logout-form" action="/logout" method="POST">
             <button>Logout</button>
+            <a href="/plants/create">Create a Plant</a>
           </form>
           {{else}}
           <a href="/login">Login</a>
