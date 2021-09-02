@@ -1,18 +1,53 @@
 const express = require('express');
 const router = express.Router();
+const fileUploader = require('../configs/cloudinary.config');
 
 const User = require('../models/User.model');
 
 router.get('/profile', (req, res) => {
   let d = new Date(req.session.currentUser.birthday)
   let getDate = d.getDate()
-  let getMonth = d.getMonth()
+  let getMonth = d.getMonth()+1
   let getYear = d.getFullYear()
-let birthDate = `${getDate}.${getMonth}.${getYear}`
+  let birthDate = `${getDate}.${getMonth}.${getYear}`
 
-console.log("birthDate ====>",birthDate)
-  res.render('insidePlants/profile', {userInSession: req.session.currentUser,birthDate});
+  res.render('insidePlants/profile', {userInSession: req.session.currentUser, birthDate});
 });
+
+
+// EDIT
+
+router.get('/editProfile', (req, res) => {
+  res.render('insidePlants/editProfile', {
+    userInSession: req.session.currentUser,
+  });
+});
+
+router.post('/editProfile/:id/', fileUploader.single('profilePic'), (req, res) => {
+  const id = req.params.id;
+  console.log("mir ============>",req.file)
+  const updatedUser = {
+    description: req.body.description,
+    favPlant: req.body.favPlant,
+    firstName: req.body.firstName
+  }
+  if(req.body.birthday){
+    updatedUser.birthday = req.body.birthday
+  }
+  if(req.file){
+    updatedUser.profilePic = req.file.path
+  }
+
+  User.findByIdAndUpdate(id, updatedUser, { new: true }).then(() => {
+    req.session.reload(function (err) {
+      res.render('insidePlants/saved');
+    });
+    
+  })
+  
+})
+
+// DELETE 
 
 router.get('/deleteProfile', (req, res) => {
   res.render('insidePlants/deleteProfile', {

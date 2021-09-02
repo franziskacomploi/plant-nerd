@@ -16,9 +16,6 @@ router.get('/signup', (req, res) => res.render('auth/signup'));
 
 router.post('/signup', fileUploader.single('profilePic'), (req, res, next) => {
 
-
-
-  console.log("post something")
   const {username, password, description, favPlant, birthday, firstName} =
     req.body;
 
@@ -28,7 +25,6 @@ router.post('/signup', fileUploader.single('profilePic'), (req, res, next) => {
     });
     return;
   }
-
 
   bcryptjs
     .genSalt(saltRounds)
