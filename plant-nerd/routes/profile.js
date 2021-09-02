@@ -3,7 +3,7 @@ const router = express.Router();
 const {redirectLoggedIn} = require('./guards/guards');
 
 const User = require('../models/User.model');
-const Plant = reuqire('../models/plant.model');
+const Plant = require('../models/plant.model');
 
 router.get('/profile', (req, res) => {
   res.render('insidePlants/profile', {userInSession: req.session.currentUser});
@@ -25,7 +25,15 @@ router.post('/deleteProfile/:id/delete', (req, res) => {
 
 router.get('/user/my-posts', redirectLoggedIn, (req, res) => {
   const userID = req.session.currentUser._id;
-  Plant.find;
+  Plant.find({author: userID})
+    .then((posts) => {
+      res.render('insidePlants/userPosts', {
+        posts: posts,
+      });
+    })
+    .catch((error) =>
+      console.log(`Error while searching for user posts: ${error}`)
+    );
 });
 
 module.exports = router;
