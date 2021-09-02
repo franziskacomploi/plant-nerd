@@ -80,18 +80,12 @@ router.post('/login', (req, res, next) => {
         return;
       } else if (bcryptjs.compareSync(password, user.password)) {
         req.session.currentUser = user;
-        res.redirect('insidePlants/plantsMain');
+        res.redirect('/explore');
       } else {
         res.render('auth/login', {errorMessage: 'Incorrect password.'});
       }
     })
     .catch((error) => next(error));
-});
-
-router.get('/plantsMain', (req, res) => {
-  res.render('insidePlants/plantsMain', {
-    userInSession: req.session.currentUser,
-  });
 });
 
 // LOG OUT

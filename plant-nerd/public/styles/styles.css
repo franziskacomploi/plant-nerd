@@ -192,3 +192,14 @@ nav a:hover {
     flex-direction: column;
     justify-content: center;
 }
+
+/* USER POSTS PAGE */
+
+.container {
+    display: flex; 
+    flex-direction: row;
+}
+
+.plant-post > img {
+    width: 200px;
+}
