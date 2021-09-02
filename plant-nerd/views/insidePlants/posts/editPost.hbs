@@ -1,0 +1,15 @@
+<form action="/editPost/{{plant._id}}" method="post" enctype="multipart/form-data">
+<label name="name">Name:</label>
+<input type="text" name="name" value="{{plant.name}}">
+<label name="description">Description:</label>
+<input type="text" name="description" value="{{plant.description}}">
+<label name="plantImg">Upload your plant picture:</label>
+<input type="file" name="plantImg" value="{{plant.plantImg}}" />
+<label name="location">Location</label>
+<input type="text" name="location" value="{{plant.location}}">
+<label name="date">Found on Date:</label>
+<input type="date" name="date" value="{{plant.date}}">
+<label name="season">Season</label>
+<input type="text" name="season" value="{{plant.season}}">
+<button type="submit">Edit Plant</button>
+</form>

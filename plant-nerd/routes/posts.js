@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const fileUploader = require('../configs/cloudinary.config');
 const {redirectLoggedIn} = require('./guards/guards');
 
 const Plant = require('../models/plant.model');
@@ -25,5 +26,44 @@ router.post('/deletePost/:id', redirectLoggedIn, (req, res, next) => {
       console.log('Error occured while deleting the plant', err);
     });
 });
+
+router.get('/editPost/:id', redirectLoggedIn, (req, res, next) => {
+  const id = req.params.id;
+  Plant.findById(id).then((plant) => {
+    console.log(plant);
+    res.render('insidePlants/posts/editPost', {
+      plant: plant,
+    });
+  });
+});
+
+router.post(
+  '/editPost/:id',
+  fileUploader.single('plantImg'),
+  redirectLoggedIn,
+  (req, res, next) => {
+    const id = req.params.id;
+    const {name, description, location, date, season} = req.body;
+
+    let updateValues = {
+      name,
+      description,
+      location,
+      date,
+      season,
+    };
+    if (req.file) {
+      updateValues.plantImg = req.file.path;
+    }
+
+    Plant.findByIdAndUpdate(id, updateValues)
+      .then(() => {
+        res.redirect('/user/my-posts');
+      })
+      .catch((err) => {
+        console.log('Error occured while updating the Plant', err);
+      });
+  }
+);
 
 module.exports = router;
