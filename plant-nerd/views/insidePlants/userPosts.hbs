@@ -1,9 +1,13 @@
 <h2>See all your posts here: </h2>
+<div class="container">
 {{#each posts}}
+<div class="plant-post">
 <div>{{name}}</div>
 <div>{{location}}</div>
 <div>{{description}}</div>
 <img src={{plantImg}} />
 <div>{{foundOnDate}}</div>
 <div>{{season}}</div>
+</div>
 {{/each}}
+</div>
