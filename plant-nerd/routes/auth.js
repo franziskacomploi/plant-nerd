@@ -6,7 +6,7 @@ const fileUploader = require('../configs/cloudinary.config');
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 
-const moment = require('moment');
+
 
 const User = require('../models/User.model');
 
@@ -15,15 +15,9 @@ const User = require('../models/User.model');
 router.get('/signup', (req, res) => res.render('auth/signup'));
 
 router.post('/signup', fileUploader.single('profilePic'), (req, res, next) => {
+
   const {username, password, description, favPlant, birthday, firstName} =
     req.body;
-
-  if (!username || !password) {
-    res.render('auth/signup', {
-      errorMessage: 'You need a username and a password to join.',
-    });
-    return;
-  }
 
   if (!username || !password) {
     res.render('auth/signup', {
@@ -39,7 +33,7 @@ router.post('/signup', fileUploader.single('profilePic'), (req, res, next) => {
       return User.create({
         username,
         password: hashedPassword,
-        profilePic: req.file.path,
+        profilePic: req.file ?  req.file.path :"https://tse1.mm.bing.net/th?id=OIP.IV4duzHKytfRSOSywgprAgHaJ-&pid=Api" ,
         description,
         favPlant,
         birthday,
