@@ -94,12 +94,6 @@ router.post('/login', (req, res, next) => {
     .catch((error) => next(error));
 });
 
-router.get('/plantsMain', (req, res) => {
-  res.render('insidePlants/plantsMain', {
-    userInSession: req.session.currentUser,
-  });
-});
-
 // LOG OUT
 
 router.post('/logout', (req, res) => {
