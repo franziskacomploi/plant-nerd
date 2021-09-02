@@ -3,7 +3,6 @@ const router = express.Router();
 const {redirectLoggedIn} = require('./guards/guards');
 
 const User = require('../models/User.model');
-const Plant = require('../models/plant.model');
 
 router.get('/profile', (req, res) => {
   res.render('insidePlants/profile', {userInSession: req.session.currentUser});

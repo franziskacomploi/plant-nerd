@@ -55,5 +55,7 @@ const plants = require('./routes/plants');
 app.use('/', plants);
 const profile = require('./routes/profile');
 app.use('/', profile);
+const posts = require('./routes/posts');
+app.use('/', posts);
 
 module.exports = app;
