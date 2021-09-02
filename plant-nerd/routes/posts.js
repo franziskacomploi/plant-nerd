@@ -52,6 +52,7 @@ router.post(
       date,
       season,
     };
+
     if (req.file) {
       updateValues.plantImg = req.file.path;
     }
