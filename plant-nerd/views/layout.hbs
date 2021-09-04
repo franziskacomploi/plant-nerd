@@ -22,12 +22,12 @@
           <img src="/styles/images/pn-icon.png" alt="Plant Nerd Icon" width="30" height="24" class="d-inline-block align-text-top">
           PlantNerd
         </a>
+
+        {{#if isLoggedIn}}
         <form class="d-flex m-0">
           <input class="form-control me-2 w-200" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-dark" type="submit">Search</button>
         </form>
-
-        {{#if isLoggedIn}}
         <div class="loggedin-links">
           <a href="/explore" class="me-3">Explore</a>
           <a href="/findFriends" class="me-3">Find Friends</a>
