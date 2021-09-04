@@ -86,18 +86,36 @@ nav a:hover {
     align-items: center;
 }
 
+footer {
+    background-color: #9D98C1;
+    display: flex;
+    align-items: center;
+    color: #3C405C;
+    font-size: smaller;
+}
+
+footer a {
+    font-size: smaller;
+}
+
 #main {
     display: flex;
     flex-direction: column;
+    
 }
 
-.main-text {
+.main-1 {
     background-color: #3C405C;
     color: #D7D2CA;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.main-2 {
+    background-color: #3C405C;
+    color: #D7D2CA;
 }
 
 
@@ -146,6 +164,10 @@ nav a:hover {
     justify-content: center;
 }
 
+.btn-contact {
+    color: #3C405C;
+}
+
 
 /* SIGN UP AND LOG IN PAGE  */
 
@@ -177,6 +199,17 @@ nav a:hover {
     text-align: center;
 }
 
+.profile-card {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.card-icon {
+    width:20px;
+}
+
 /* DELETE PROFILE PAGE */
 
 #deleteProfile {
@@ -193,13 +226,34 @@ nav a:hover {
     justify-content: center;
 }
 
-/* USER POSTS PAGE */
 
-.container {
-    display: flex; 
-    flex-direction: row;
+/* PLANT CARD */
+
+.plants-div {
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.plant-post > img {
-    width: 200px;
+.plant-card {
+    background-color: #A3B4B3;
+    color: #3C405C;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border-radius: 1rem;
 }
+
+.card-title {
+    background: #9D98C1;
+    color: #3C405C;
+    border-radius: 5%;
+}
+
+.card-img-top {
+    width:300px;
+    height:300px;
+    object-fit:cover;
+}
+

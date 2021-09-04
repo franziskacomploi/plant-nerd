@@ -31,7 +31,6 @@ router.post(
   fileUploader.single('profilePic'),
   (req, res) => {
     const id = req.params.id;
-    console.log('mir ============>', req.file);
     const updatedUser = {
       description: req.body.description,
       favPlant: req.body.favPlant,
@@ -67,5 +66,25 @@ router.post('/deleteProfile/:id', redirectLoggedIn, (req, res) => {
     res.render('main');
   });
 });
+
+
+// SEARCH ALL USERS
+
+// router.get('/users/search', async (req, res) => {
+//   const { userName } = req.query;
+ 
+//   const searchedUser = await User.find({ $text: {$search: userName}})
+ 
+//   res.render('userSearchResults', { searchedUser });
+ 
+// })
+
+
+
+
+
+
+
+
 
 module.exports = router;

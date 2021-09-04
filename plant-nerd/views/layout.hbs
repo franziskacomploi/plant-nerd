@@ -13,6 +13,8 @@
 
   <body>
 
+    
+
     <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container-fluid d-flex nav">
 
@@ -20,31 +22,38 @@
           <img src="/styles/images/pn-icon.png" alt="Plant Nerd Icon" width="30" height="24" class="d-inline-block align-text-top">
           PlantNerd
         </a>
+        <form class="d-flex m-0">
+          <input class="form-control me-2 w-200" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-dark" type="submit">Search</button>
+        </form>
 
         {{#if isLoggedIn}}
         <div class="loggedin-links">
-          <a href="/explore">Explore</a>
-          <a href="/user/my-posts">My Posts</a>
-          <a href="/plants/create" class="m-3">Create a Plant</a>
+          <a href="/explore" class="me-3">Explore</a>
+          <a href="/plants/create" class="me-3">Create a Plant</a>
+          <a href="/user/my-posts" class="me-3">Your Posts</a>
           <a href="/profile" class="me-3">Profile</a>
           <form class="m-0" action="/logout" method="POST">
             <button class="btn btn-logout">Logout</button>
           </form>
         </div>
-
-          
+        
         {{else}}
           <div>
-            <a href="/login" class="p-2">Login</a>
+            <a href="/login" class="p-2 ms-2">Login</a>
             <a href="/signup" class="p-2">Sign Up</a>
           </div>
           
         {{/if}}
+
       </div>
     </nav>
 
     {{{body}}}
 
-    
+    {{!-- <footer class="bottom">
+      <a href="/" class="p-2 btn btn-contact">Contact</a>
+      <p class="p-2 m-0">2021 - Franziska Pendzialek & Julia Häußler</p>
+    </footer> --}}
   </body>
 </html>

@@ -1,14 +1,23 @@
-<div>This is Plants Main.</div>
+<section id="explore">
 
-<div class="container">
-{{#each plants}}
-<div class="plant-post">
-  <div>{{name}}</div>
-  <div>{{location}}</div>
-  <div>{{description}}</div>
-  <img src={{plantImg}} />
-  <div>{{foundOnDate}}</div>
-  <div>{{season}}</div>
-</div>
-{{/each}}
-</div>
+  <div class="plants-div main-2 p-3 m-0">
+    {{#each plants}}
+    <div class="plant-card p-2" style="width: 20rem;">
+      <img src={{plantImg}} class="card-img-top mb-2" alt="Plant Photo">
+      
+      <h5 class="card-title px-3">{{name}}</h5>
+      <p class="card-text">{{location}}</p>
+      <p class="card-text">{{foundOnDate}}</p>
+      <p class="card-text">{{season}}</p>
+      <p class="card-text">{{description}}</p>
+      <a href="#" class="btn btn-light">Details & Comments</a>
+      
+    </div>
+    {{/each}}
+  </div>
+
+
+
+
+</section>
+

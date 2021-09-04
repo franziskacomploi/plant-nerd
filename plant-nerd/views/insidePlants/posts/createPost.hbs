@@ -1,15 +1,13 @@
+<h2>Found an awesome plant? Share it with others!</h2>
+
 <form action="/plants/create" method="post" enctype="multipart/form-data">
-<label name="name">Name:</label>
-<input type="text" name="name">
-<label name="description">Description:</label>
-<input type="text" name="description">
-<label name="plantImg">Upload your plant picture:</label>
-<input type="file" name="plantImg" />
-<label name="location">Location</label>
-<input type="text" name="location">
-<label name="date">Found on Date:</label>
-<input type="date" name="date">
-<label name="season">Season</label>
-<input type="text" name="season">
-<button type="submit">Create Plant</button>
+    Name of the plant: <input type="text" class="form-control mt-2" name="name" /><br>
+    Where did you find it? <input type="text" class="form-control mt-2" name="location" /><br>
+    On what date did you find it? <input type="date" class="form-control mt-2" name="date" /><br>
+    What season in your hemisphere? <input class="form-control mt-2" name="season" /><br>
+    Describe your find: <input class="form-control" type="text" name="description" /><br>
+    Share a photo of the plant: <input type="file" name:"plantImg" />
+    <div class="btn-container">
+        <button type="submit" class="btn btn-light w-25">Create</button>
+    </div>
 </form>
