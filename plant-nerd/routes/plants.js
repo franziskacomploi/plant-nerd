@@ -18,11 +18,7 @@ router.post('/plants/create', fileUploader.single('plantImg'), (req, res) => {
     date,
     season,
     plantImg: req.file.path,
-  })
-    .then(() => res.redirect('/'))
-    .catch((error) =>
-      console.log(`Error while creating a new plant: ${error}`)
-    );
+  }).then(() => res.redirect('/'));
 });
 
 module.exports = router;

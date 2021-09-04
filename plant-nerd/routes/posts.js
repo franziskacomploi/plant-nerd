@@ -7,24 +7,16 @@ const Plant = require('../models/plant.model');
 
 router.get('/user/my-posts', redirectLoggedIn, (req, res) => {
   const userID = req.session.currentUser._id;
-  Plant.find({author: userID})
-    .then((posts) => {
-      res.render('insidePlants/posts/userPosts', {
-        posts: posts,
-      });
-    })
-    .catch((error) =>
-      console.log(`Error while searching for user posts: ${error}`)
-    );
+  Plant.find({author: userID}).then((posts) => {
+    res.render('insidePlants/posts/userPosts', {
+      posts: posts,
+    });
+  });
 });
 
 router.post('/deletePost/:id', redirectLoggedIn, (req, res, next) => {
   const id = req.params.id;
-  Plant.findByIdAndDelete(id)
-    .then(res.redirect('/user/my-posts'))
-    .catch((err) => {
-      console.log('Error occured while deleting the plant', err);
-    });
+  Plant.findByIdAndDelete(id).then(res.redirect('/user/my-posts'));
 });
 
 router.get('/editPost/:id', redirectLoggedIn, (req, res, next) => {
@@ -57,13 +49,9 @@ router.post(
       updateValues.plantImg = req.file.path;
     }
 
-    Plant.findByIdAndUpdate(id, updateValues)
-      .then(() => {
-        res.redirect('/user/my-posts');
-      })
-      .catch((err) => {
-        console.log('Error occured while updating the Plant', err);
-      });
+    Plant.findByIdAndUpdate(id, updateValues).then(() => {
+      res.redirect('/user/my-posts');
+    });
   }
 );
 
