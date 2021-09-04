@@ -15,6 +15,7 @@ const UserSchema = new Schema({
   favPlant: String,
   birthday: Date,
   firstName: String,
+  friends: [{type: Schema.Types.ObjectId, ref: 'User'}],
 });
 
 const User = model('User', UserSchema, 'users');

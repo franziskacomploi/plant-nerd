@@ -8,18 +8,9 @@ const Plant = require('../models/plant.model');
 router.get('/user/my-posts', redirectLoggedIn, (req, res) => {
   const userID = req.session.currentUser._id;
 
-  let d = new Date(req.plant.foundOnDate);
-  let getDate = d.getDate();
-  let getMonth = d.getMonth() + 1;
-  let getYear = d.getFullYear();
-  let easyFoundOnDate = `${getDate}.${getMonth}.${getYear}`;
-
-  
-
   Plant.find({author: userID}).then((posts) => {
     res.render('insidePlants/posts/userPosts', {
       posts: posts,
-      easyFoundOnDate
     });
   });
 });
@@ -46,7 +37,6 @@ router.post(
   (req, res, next) => {
     const id = req.params.id;
     const {name, description, location, date, season} = req.body;
-
 
     let updateValues = {
       name,

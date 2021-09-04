@@ -257,3 +257,6 @@ footer a {
     object-fit:cover;
 }
 
+.user > img {
+    width: 200px;
+}

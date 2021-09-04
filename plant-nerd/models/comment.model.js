@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const {Schema, model} = require('mongoose');
 
 const CommentSchema = new Schema({
   title: {
@@ -10,9 +10,9 @@ const CommentSchema = new Schema({
     type: String,
     required: true,
   },
-  author: { type: Schema.Types.ObjectId, ref: "User" },
+  theAuthor: {type: Schema.Types.ObjectId, ref: 'User'},
 });
 
-const Comment = model("Comment", CommentSchema, "comments");
+const Comment = model('Comment', CommentSchema, 'comments');
 
 module.exports = Comment;

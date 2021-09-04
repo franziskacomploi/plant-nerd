@@ -1,0 +1,20 @@
+<div class="plant-post">
+<div>{{plant.name}}</div>
+  <div>{{plant.location}}</div>
+  <div>{{plant.description}}</div>
+  <img src={{plant.plantImg}} />
+  <div>{{plant.foundOnDate}}</div>
+  <div>{{plant.season}}</div>
+ {{#each plant.comments}}
+ <div>{{title}}</div>
+ <div>{{textField}}</div>
+ <div>{{theAuthor.username}}</div>
+ {{/each}}
+ <form action="/plants/{{plant._id}}/comment" method="POST">
+ <label name="title">Your Title:</label>
+ <input type="text" name="title">
+ <label name="textField">Your Text:</label>
+ <input type="text" name="textField">
+ <button type="submit">Submit Comment</button>
+ </form>
+  </div>
