@@ -61,6 +61,30 @@ const comments = [
     title: 'Happy Bannanannaaas',
     textField: 'Happy Bananaaaa',
   },
+  {
+    title: 'Without words',
+    textField: 'This is stunning!',
+  },
+  {
+    title: 'I want to visit it',
+    textField: 'Do I get there easily?',
+  },
+  {
+    title: 'Truly magical',
+    textField: 'This is great!',
+  },
+  {
+    title: 'No comments needed!',
+    textField: 'This definitely has to go onto my bucket list.',
+  },
+  {
+    title: 'Great Place found',
+    textField: 'to stay for longer',
+  },
+  {
+    title: 'In Love',
+    textField: 'with this!',
+  },
 ];
 
 const plants = [
@@ -101,6 +125,61 @@ const plants = [
     foundOnDate: new Date('1994/10/07'),
     season: 'Fall',
   },
+  {
+    name: 'Sakura',
+    description: 'The japanese cherry blossom.',
+    plantImg:
+      'https://res.cloudinary.com/dq66nu4hm/image/upload/v1630766202/plant-nerd/masaaki-komori-NoXUQ54pDac-unsplash_tufixn.jpg',
+    location: 'Near by Tokio, Japan',
+    foundOnDate: new Date('1994/03/27'),
+    season: 'Spring',
+  },
+  {
+    name: 'Baobab',
+    description: 'The spirit of Africa in a tree.',
+    plantImg:
+      'https://res.cloudinary.com/dq66nu4hm/image/upload/v1630766205/plant-nerd/niko-photos-tGTVxeOr_Rs-unsplash_unvclx.jpg',
+    location: 'Masai Mara, Kenia, Africa',
+    foundOnDate: new Date('1994/12/07'),
+    season: 'Summer',
+  },
+  {
+    name: 'Dry Flowers',
+    description:
+      'I found this in my living room. Someone must have forgotten it.',
+    plantImg:
+      'https://res.cloudinary.com/dq66nu4hm/image/upload/v1630766205/plant-nerd/chuttersnap-XOPjB-ojFgY-unsplash_cqt8su.jpg',
+    location: 'My living room',
+    foundOnDate: new Date('1994/09/14'),
+    season: 'Fall',
+  },
+  {
+    name: 'Some english flowers',
+    description: 'Found in Englands amazing gardens.',
+    plantImg:
+      'https://res.cloudinary.com/dq66nu4hm/image/upload/v1630766197/plant-nerd/mio-ito-B_SLtmXPKNA-unsplash_r1y3rc.jpg',
+    location: 'Buckingham Palace, London, England',
+    foundOnDate: new Date('1994/08/27'),
+    season: 'Summer',
+  },
+  {
+    name: 'Treehouse Tree',
+    description: 'Perfect place to build my treehouse here.',
+    plantImg:
+      'https://res.cloudinary.com/dq66nu4hm/image/upload/v1630766207/plant-nerd/johann-siemens-EPy0gBJzzZU-unsplash_hn3vga.jpg',
+    location: 'Somewhere in Germany',
+    foundOnDate: new Date('1994/09/07'),
+    season: 'Fall',
+  },
+  {
+    name: 'Magical Irish Oak',
+    description: 'Bewitched tree from Ireland.',
+    plantImg:
+      'https://res.cloudinary.com/dq66nu4hm/image/upload/v1630766211/plant-nerd/veeterzy-sMQiL_2v4vs-unsplash_wuwfdi.jpg',
+    location: 'Dark Hedges, Northern Ireland',
+    foundOnDate: new Date('1994/10/07'),
+    season: 'Fall',
+  },
 ];
 
 connectDB()
@@ -121,16 +200,24 @@ connectDB()
     User.find().then((users) => {
       let user1 = users[0]._id;
       let user2 = users[1]._id;
-      for (let i = 0; i < 5; i++) {
-        comments[i].theAuthor = user1;
-      }
-      for (let i = 4; i < 8; i++) {
+      for (let i = 0; i < 7; i++) {
         comments[i].theAuthor = user2;
       }
-      plants[0].theAuthor = user1;
-      plants[1].theAuthor = user1;
-      plants[2].theAuthor = user2;
-      plants[3].theAuthor = user2;
+      for (let i = 4; i < 14; i++) {
+        comments[i].theAuthor = user1;
+      }
+
+      plants[0].author = user1;
+      plants[1].author = user1;
+      plants[2].author = user1;
+      plants[3].author = user1;
+      plants[4].author = user1;
+
+      plants[5].author = user2;
+      plants[6].author = user2;
+      plants[7].author = user2;
+      plants[8].author = user2;
+      plants[9].author = user2;
 
       users[0].friends = [user2];
       users[1].friends = [user1];
@@ -138,14 +225,17 @@ connectDB()
       Comment.create(comments).then((comments) => {
         console.log(`Created ${comments.length} Comments.`);
         Comment.find().then((comments) => {
-          let comments1 = [comments[0], comments[1]];
-          let comments2 = [comments[2], comments[3]];
-          let comments3 = [comments[4], comments[5]];
-          let comments4 = [comments[6], comments[7]];
-          plants[0].comments = comments1;
-          plants[1].comments = comments2;
-          plants[2].comments = comments3;
-          plants[3].comments = comments4;
+          plants[0].comments = [comments[0], comments[1]];
+          plants[1].comments = [comments[2], comments[3]];
+          plants[2].comments = [comments[4], comments[5]];
+          plants[3].comments = [comments[6], comments[7]];
+          plants[4].comments = [comments[8]];
+          plants[5].comments = [comments[9]];
+          plants[6].comments = [comments[10]];
+          plants[7].comments = [comments[11]];
+          plants[8].comments = [comments[12]];
+          plants[9].comments = [comments[13]];
+
           Plant.create(plants).then((plants) => {
             console.log(`Created ${plants.length} Plants.`);
             mongoose.connection.close();
