@@ -26,6 +26,7 @@ router.post('/plants/create', fileUploader.single('plantImg'), (req, res) => {
 router.get('/plants/:id', redirectLoggedIn, (req, res) => {
   const id = req.params.id;
   Plant.findById(id)
+    .populate('author')
     .populate({
       path: 'comments',
       model: Comment,

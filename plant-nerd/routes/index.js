@@ -3,6 +3,7 @@ const router = express.Router();
 const {redirectLoggedIn} = require('./guards/guards');
 
 const Plant = require('../models/plant.model');
+const User = require('../models/user.model');
 
 /* GET HOME PAGE */
 router.get('/', (req, res, next) => {
@@ -21,6 +22,7 @@ router.get('/', (req, res, next) => {
 router.get('/explore', redirectLoggedIn, (req, res, next) => {
   Plant.find()
     .sort({foundOnDate: -1})
+    .populate('author')
     .then((plants) => {
       res.render('insidePlants/plantsMain', {
         userInSession: req.session.currentUser,
