@@ -41,4 +41,18 @@ router.get('/plants/:id', redirectLoggedIn, (req, res) => {
     });
 });
 
+router.post('/plants/:id/comment', redirectLoggedIn, (req, res, next) => {
+  const plantId = req.params.id;
+  const userId = req.session.currentUser._id;
+  const {title, textField} = req.body;
+
+  Comment.create({title, textField, theAuthor: userId})
+    .then((comment) => {
+      return Plant.findByIdAndUpdate(plantId, {$push: {comments: comment._id}});
+    })
+    .then(() => {
+      res.redirect(`/plants/${plantId}`);
+    });
+});
+
 module.exports = router;
