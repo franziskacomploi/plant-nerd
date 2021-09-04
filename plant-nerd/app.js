@@ -57,5 +57,7 @@ const profile = require('./routes/profile');
 app.use('/', profile);
 const posts = require('./routes/posts');
 app.use('/', posts);
+const friends = require('./routes/friends');
+app.use('/', friends);
 
 module.exports = app;

@@ -1,0 +1,12 @@
+<h2>Find friends!</h2>
+<div class="friends-container">
+{{#each users}}
+<div class="user">
+  <div>{{username}}</div>
+  <img src="{{profilePic}}"/>
+</div>
+<form action="/addFriend/{{_id}}" method="POST">
+<button type="submit">Add as friend</button>
+</form>
+{{/each}}
+</div>
