@@ -1,18 +1,18 @@
 
-
+<div class="profile-card p-4">
 {{#if userInSession}}
     <h1>{{userInSession.firstName}} (aka {{ userInSession.username }})</h1>
     
-    <img src={{ userInSession.profilePic }} alt="User Photo">
+    <img src={{ userInSession.profilePic }} alt="User Photo" class="card-img-top">
 
-    <img src="" alt="Birthday Cake Plant Icon">
+    <img src="/styles/images/birthday.png" alt="Birthday Cake Plant Icon" class="card-icon">
     <h3>{{ birthDate }}</h3>
 
-    <img src="" alt="Plant Icon">
+    <img src="/styles/images/pn-icon.png" alt="Plant Icon" class="card-icon">
     <h2>My favourite plant:</h2>
     <h3>{{ userInSession.favPlant }}</h3>
 
-    <img src="" alt="About User Icon">
+    <img src="/styles/images/user.png" alt="About User Icon" class="card-icon">
     <h2>About me:</h2>
     <h3>{{ userInSession.description }}</h3>
 
@@ -26,11 +26,19 @@
         </div>
     </div>
 
+
     
 
 {{else}}
   <p>You still need to log in.</p>
 {{/if}}
+</div>
 
 
 
+    <div>
+        <form class="d-flex" action="/users/search" method="GET">
+            <input class="form-control me-2" type="search" placeholder="Find new Contacts" name="userName">
+            <button class="btn btn-dark" type="submit">Search</button>
+        </form>
+    </div>
