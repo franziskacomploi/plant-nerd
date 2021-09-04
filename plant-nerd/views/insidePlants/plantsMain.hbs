@@ -1,1 +1,14 @@
 <div>This is Plants Main.</div>
+
+<div class="container">
+{{#each plants}}
+<div class="plant-post">
+  <div>{{name}}</div>
+  <div>{{location}}</div>
+  <div>{{description}}</div>
+  <img src={{plantImg}} />
+  <div>{{foundOnDate}}</div>
+  <div>{{season}}</div>
+</div>
+{{/each}}
+</div>
