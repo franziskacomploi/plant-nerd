@@ -122,15 +122,15 @@ connectDB()
       let user1 = users[0]._id;
       let user2 = users[1]._id;
       for (let i = 0; i < 5; i++) {
-        comments[i].author = user1;
+        comments[i].theAuthor = user1;
       }
       for (let i = 4; i < 8; i++) {
-        comments[i].author = user2;
+        comments[i].theAuthor = user2;
       }
-      plants[0].author = user1;
-      plants[1].author = user1;
-      plants[2].author = user2;
-      plants[3].author = user2;
+      plants[0].theAuthor = user1;
+      plants[1].theAuthor = user1;
+      plants[2].theAuthor = user2;
+      plants[3].theAuthor = user2;
 
       Comment.create(comments).then((comments) => {
         console.log(`Created ${comments.length} Comments.`);

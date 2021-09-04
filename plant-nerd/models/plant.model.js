@@ -1,22 +1,22 @@
-const { Schema, model } = require("mongoose");
+const {Schema, model} = require('mongoose');
 
 const PlantSchema = new Schema({
   name: {
     type: String,
     required: true,
   },
-  description: String, 
+  description: String,
   plantImg: String,
   location: {
     type: String,
     required: true,
-  }, 
-  foundOnDate: Date, 
+  },
+  foundOnDate: Date,
   season: String,
-  author: { type: Schema.Types.ObjectId, ref: "User" },
-  comments: [{ type: Schema.Types.ObjectId, ref: "Comments" }],
+  author: {type: Schema.Types.ObjectId, ref: 'User'},
+  comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
 });
 
-const Plant = model("Plant", PlantSchema, "plants");
+const Plant = model('Plant', PlantSchema, 'plants');
 
 module.exports = Plant;

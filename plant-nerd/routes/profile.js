@@ -3,7 +3,7 @@ const router = express.Router();
 const {redirectLoggedIn} = require('./guards/guards');
 const fileUploader = require('../configs/cloudinary.config');
 
-const User = require('../models/User.model');
+const User = require('../models/user.model');
 
 router.get('/profile', redirectLoggedIn, (req, res) => {
   let d = new Date(req.session.currentUser.birthday);

@@ -7,6 +7,7 @@ const Plant = require('../models/plant.model');
 
 router.get('/user/my-posts', redirectLoggedIn, (req, res) => {
   const userID = req.session.currentUser._id;
+
   Plant.find({author: userID}).then((posts) => {
     res.render('insidePlants/posts/userPosts', {
       posts: posts,

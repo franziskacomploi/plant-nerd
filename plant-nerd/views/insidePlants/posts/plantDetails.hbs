@@ -1,0 +1,13 @@
+<div class="plant-post">
+<div>{{plant.name}}</div>
+  <div>{{plant.location}}</div>
+  <div>{{plant.description}}</div>
+  <img src={{plant.plantImg}} />
+  <div>{{plant.foundOnDate}}</div>
+  <div>{{plant.season}}</div>
+ {{#each plant.comments}}
+ <div>{{title}}</div>
+ <div>{{textField}}</div>
+ <div>{{theAuthor.username}}</div>
+ {{/each}}
+  </div>
