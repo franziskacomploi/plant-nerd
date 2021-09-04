@@ -132,6 +132,9 @@ connectDB()
       plants[2].theAuthor = user2;
       plants[3].theAuthor = user2;
 
+      users[0].friends = [user2];
+      users[1].friends = [user1];
+
       Comment.create(comments).then((comments) => {
         console.log(`Created ${comments.length} Comments.`);
         Comment.find().then((comments) => {
