@@ -61,6 +61,16 @@ body {
     text-align: center;
 }
 
+/* ERROR + NOT FOUND */
+
+#error {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #3C405C;
+}
+
 /* LANDING PAGE */
 
 nav {
@@ -101,7 +111,6 @@ footer a {
 #main {
     display: flex;
     flex-direction: column;
-    
 }
 
 .main-1 {
@@ -116,6 +125,14 @@ footer a {
 .main-2 {
     background-color: #3C405C;
     color: #D7D2CA;
+}
+
+.card-img-logo {
+    width:190px;
+    height:190px;
+    object-fit:cover;
+    border: 5px solid #9D98C1;
+    border-radius: 15%;
 }
 
 
@@ -171,7 +188,7 @@ footer a {
 
 /* SIGN UP AND LOG IN PAGE  */
 
-.signup-page {
+.signup-form {
     background-color: #3C405C;
     color: #9D98C1;
 }
@@ -193,21 +210,36 @@ footer a {
 
 /* PROFILE PAGE */
 
+#profile {
+    display: flex;
+    flex-direction: row;
+}
+
 .profile-action-container {
     display: flex;
     justify-content: space-around;
     text-align: center;
 }
 
-.profile-card {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+.card-icon {
+    width: 40px;
 }
 
-.card-icon {
-    width:20px;
+.overview-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.overview {
+    border: 1px solid black;
+}
+
+.profile-head {
+    background-color: #3C405C;
+    color: #9D98C1;
+    font-size: 1rem;
 }
 
 /* DELETE PROFILE PAGE */
@@ -227,7 +259,7 @@ footer a {
 }
 
 
-/* PLANT CARD */
+/* PLANTS */
 
 .plants-div {
     display: flex;
@@ -263,4 +295,63 @@ footer a {
 
 .plant-post > img {
     width: 200px;
+}
+
+#plant-details {
+    display: flex;
+}
+
+.create-comment{
+    border: 5px solid #9D98C1;
+    color: #3C405C;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.comment-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.comments {
+    border: 5px solid #9D98C1;
+}
+
+.comment-title {
+    background-color: #3C405C;
+    color: #9D98C1;
+}
+
+.comment-text {
+    color: #3C405C;
+}
+
+.comment-author {
+    font-size: smaller;
+    color: #324628;
+}
+
+/* FIND FRIENDS */
+
+#friends > h2 {
+    background-color: #3C405C;
+    color: #9D98C1;
+    text-align: center;
+}
+
+.friends-div {
+    display: flex;
+}
+
+.friend-card {
+    background-color: #A3B4B3;
+    color: #3C405C;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border-radius: 1rem;
 }

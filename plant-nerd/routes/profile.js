@@ -68,14 +68,9 @@ router.post('/deleteProfile/:id', redirectLoggedIn, (req, res) => {
 });
 
 
-// SEARCH ALL USERS
+// SHOW FRIENDS
 
-// router.get('/users/search', async (req, res) => {
-//   const { userName } = req.query;
- 
-//   const searchedUser = await User.find({ $text: {$search: userName}})
- 
-//   res.render('userSearchResults', { searchedUser });
+
  
 // })
 

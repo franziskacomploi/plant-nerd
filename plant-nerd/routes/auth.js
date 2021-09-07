@@ -32,7 +32,7 @@ router.post('/signup', fileUploader.single('profilePic'), (req, res, next) => {
         password: hashedPassword,
         profilePic: req.file
           ? req.file.path
-          : 'https://tse1.mm.bing.net/th?id=OIP.IV4duzHKytfRSOSywgprAgHaJ-&pid=Api',
+          : '/styles/images/logo1.png',
         description,
         favPlant,
         birthday,
@@ -41,7 +41,7 @@ router.post('/signup', fileUploader.single('profilePic'), (req, res, next) => {
     })
     .then((userFromDB) => {
       console.log('Newly created user is: ', userFromDB);
-      res.redirect('/');
+      res.redirect('/login');
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
