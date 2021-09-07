@@ -6,16 +6,21 @@ const fileUploader = require('../configs/cloudinary.config');
 const User = require('../models/user.model');
 
 router.get('/profile', redirectLoggedIn, (req, res) => {
-  let d = new Date(req.session.currentUser.birthday);
-  let getDate = d.getDate();
-  let getMonth = d.getMonth() + 1;
-  let getYear = d.getFullYear();
-  let birthDate = `${getDate}.${getMonth}.${getYear}`;
+  const id = req.session.currentUser._id;
 
-  res.render('insidePlants/profile', {
-    userInSession: req.session.currentUser,
-    birthDate,
-  });
+  User.findById(id)
+    .populate('friends')
+    .then((user) => {
+      let d = new Date(user.birthday);
+      let birthDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`;
+
+      console.log(user);
+
+      res.render('insidePlants/profile', {
+        user: user,
+        birthDate,
+      });
+    });
 });
 
 // EDIT
@@ -67,19 +72,8 @@ router.post('/deleteProfile/:id', redirectLoggedIn, (req, res) => {
   });
 });
 
-
 // SHOW FRIENDS
 
-
- 
 // })
-
-
-
-
-
-
-
-
 
 module.exports = router;

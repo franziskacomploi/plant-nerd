@@ -1,0 +1,18 @@
+<div id="friends" class="p-2">
+  <h2>Did you find your friend?</h2>
+
+  <div class="friends-div main-2 p-3 m-0">
+    {{#each users}}
+    <div class="friend-card m-2 p-2 col-s-12 col-md-6" style="width: 20rem;">
+
+      <img src={{profilePic}} class="card-img-top mb-2" alt="Plant Photo">
+      
+      <h5 class="card-title px-3">{{username}}</h5>
+
+      <form action="/addFriend/{{_id}}" method="POST">
+        <button type="submit" class="btn btn-dark">Add as friend</button>
+      </form>
+      
+  </div>
+    {{/each}}
+</div>

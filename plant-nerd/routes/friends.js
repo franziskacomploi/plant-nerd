@@ -24,4 +24,14 @@ router.post('/addFriend/:id', redirectLoggedIn, (req, res) => {
     });
 });
 
+router.post('/friendSearch', (req, res) => {
+  const {searchFriend} = req.body;
+
+  User.find({username: {$regex: searchFriend, $options: 'i'}}).then((users) => {
+    res.render('insidePlants/searchFriends', {
+      users: users,
+    });
+  });
+});
+
 module.exports = router;

@@ -45,6 +45,15 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  const URL = req.originalUrl;
+  console.log(req.originalUrl);
+  if (URL.includes('/findFriends')) {
+    app.locals.friendSearch = true;
+  } else app.locals.friendSearch = false;
+  next();
+});
+
 const index = require('./routes/index');
 app.use('/', index);
 

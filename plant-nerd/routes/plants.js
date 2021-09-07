@@ -12,6 +12,7 @@ router.get('/plants/create', redirectLoggedIn, (req, res, next) => {
 
 router.post('/plants/create', fileUploader.single('plantImg'), (req, res) => {
   const {name, description, location, date, season} = req.body;
+  const author = req.session.currentUser._id;
 
   Plant.create({
     name,
@@ -19,16 +20,23 @@ router.post('/plants/create', fileUploader.single('plantImg'), (req, res) => {
     location,
     date,
     season,
-    plantImg: req.file
-    ? req.file.path
-    : '/styles/images/logo1.png',
+    plantImg: req.file ? req.file.path : '/styles/images/logo1.png',
+    author,
   }).then(() => res.redirect('/'));
+});
+
+router.post('/plantSearch', (req, res) => {
+  const {searchPlant} = req.body;
+
+  Plant.find({name: {$regex: searchPlant, $options: 'i'}}).then((plants) => {
+    res.render('insidePlants/searchResults', {
+      plants: plants,
+    });
+  });
 });
 
 router.get('/plants/:id', redirectLoggedIn, (req, res) => {
   const id = req.params.id;
-
-
 
   Plant.findById(id)
     .populate('author')
@@ -53,7 +61,7 @@ router.get('/plants/:id', redirectLoggedIn, (req, res) => {
     });
 });
 
-router.post('/plants/:id/comment', redirectLoggedIn, (req, res, next) => {
+router.post('/plants/:id/comment', redirectLoggedIn, (req, res) => {
   const plantId = req.params.id;
   const userId = req.session.currentUser._id;
   const {title, textField} = req.body;
@@ -66,10 +74,6 @@ router.post('/plants/:id/comment', redirectLoggedIn, (req, res, next) => {
       res.redirect(`/plants/${plantId}`);
     });
 });
-
-
-
-
 
 // router.get('/plants/:id/author', redirectLoggedIn, (req, res) => {
 //   const authorId = req.params.id;
