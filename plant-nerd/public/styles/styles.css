@@ -283,6 +283,10 @@ footer a {
     border-radius: 5%;
 }
 
+.card-author {
+    color: #4C7884;
+}
+
 .card-img-top {
     width:300px;
     height:300px;
@@ -317,6 +321,7 @@ footer a {
 
 .comments {
     border: 5px solid #9D98C1;
+    background-color: #A3B4B3;
 }
 
 .comment-title {
