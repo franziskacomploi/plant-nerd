@@ -24,8 +24,8 @@
         </a>
 
         {{#if isLoggedIn}}
-        <form class="d-flex m-0">
-          <input class="form-control me-2 w-200" type="search" placeholder="Search" aria-label="Search">
+        <form method="POST" action="/plantSearch" class="d-flex m-0">
+          <input class="form-control me-2 w-200" type="search" placeholder="Search plants" aria-label="Search" name="searchPlant">
           <button class="btn btn-dark" type="submit">Search</button>
         </form>
         <div class="loggedin-links">

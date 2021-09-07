@@ -23,6 +23,16 @@ router.post('/plants/create', fileUploader.single('plantImg'), (req, res) => {
   }).then(() => res.redirect('/'));
 });
 
+router.post('/plantSearch', (req, res) => {
+  const {searchPlant} = req.body;
+
+  Plant.find({name: {$regex: searchPlant, $options: 'i'}}).then((plants) => {
+    res.render('insidePlants/searchResults', {
+      plants: plants,
+    });
+  });
+});
+
 router.get('/plants/:id', redirectLoggedIn, (req, res) => {
   const id = req.params.id;
   Plant.findById(id)
@@ -42,7 +52,7 @@ router.get('/plants/:id', redirectLoggedIn, (req, res) => {
     });
 });
 
-router.post('/plants/:id/comment', redirectLoggedIn, (req, res, next) => {
+router.post('/plants/:id/comment', redirectLoggedIn, (req, res) => {
   const plantId = req.params.id;
   const userId = req.session.currentUser._id;
   const {title, textField} = req.body;
