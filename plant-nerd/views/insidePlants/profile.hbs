@@ -1,18 +1,18 @@
 <section id="profile">
     <div class="plants-div main-2 p-4 m-3 col-md-6">
         <div class="plant-card p-2" style="width: 30rem;">
-            {{#if userInSession}}
-                <h1>Hi, {{userInSession.username}}!</h1>
-                {{#if userInSession.firstName}}
-                <h3>(or should we call you {{ userInSession.firstName }}?)</h3>
+            {{#if user}}
+                <h1>Hi, {{user.username}}!</h1>
+                {{#if user.firstName}}
+                <h3>(or should we call you {{ user.firstName }}?)</h3>
                 {{/if}}
-                <img src={{ userInSession.profilePic }} alt="User Photo" class="card-img-logo m-3">
+                <img src={{ user.profilePic }} alt="User Photo" class="card-img-logo m-3">
                 <img src="/styles/images/icon5.png" alt="Birthday Cake Icon" class="card-icon">
                 <h3>{{ birthDate }}</h3>
                 <img src="/styles/images/icon4.png" alt="Plant Icon" class="card-icon">
-                <h3>{{ userInSession.favPlant }}</h3>
+                <h3>{{ user.favPlant }}</h3>
                 <img src="/styles/images/icon.png" alt="About User Icon" class="card-icon">
-                <h3>{{ userInSession.description }}</h3>
+                <h3>{{ user.description }}</h3>
                 <div class="profile-action-container">
                     <div class="profile-action p-3">
                         <a href="/editProfile" class="btn-light p-2">Edit profile</a>
@@ -25,24 +25,12 @@
             <p>You still need to log in.</p>
             {{/if}}
         </div>
-    </div>
-
-
-    {{!-- <div class="overview-cards col-md-6">
-        
-        {{each userInSession.friends}}
-        <div class="overview">
-            <h2>{{friends.username}}</h2>
-
-
+        <div>
+            {{#each user.friends}}
+                <h2>{{username}}</h2>
+                <img src="{{profilePic}}">
+            {{/each}}
         </div>
-        {{/each}}
-
-
-
-
-
-        <div class="overview">Posts</div>
-    </div> --}}
+    </div>
 
 </section>
