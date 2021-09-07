@@ -1,15 +1,15 @@
 <section id="main" class="p-2">
 
   <div class="container-fluid main-1 p-3 mb-2">
-    <h2>/LOGO/</h2>
+    <img src="/styles/images/logo1.png" class="card-img-logo mb-2">
     <h3>Travel to your favorite plants!</h3>
     <p>PlantNerd helps you finding your favorite plants. Literally.</p>
-    {{!-- <a href="/signup" class="btn btn-dark p-4 m-8">SIGN UP NOW</a> --}}
+  
   </div>
 
   <div class="plants-div main-2 p-3 m-0">
     {{#each plants}}
-    <div class="plant-card p-2" style="width: 20rem;">
+    <div class="plant-card p-2 col-s-12 col-md-6" style="width: 20rem;">
       <img src={{plantImg}} class="card-img-top mb-2" alt="Plant Photo">
       
       <h5 class="card-title px-3">{{name}}</h5>

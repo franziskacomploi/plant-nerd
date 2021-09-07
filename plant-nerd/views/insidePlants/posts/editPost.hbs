@@ -1,15 +1,46 @@
-<form action="/editPost/{{plant._id}}" method="post" enctype="multipart/form-data">
-<label name="name">Name:</label>
-<input type="text" name="name" value="{{plant.name}}">
-<label name="description">Description:</label>
-<input type="text" name="description" value="{{plant.description}}">
-<label name="plantImg">Upload your plant picture:</label>
-<input type="file" name="plantImg" value="{{plant.plantImg}}" />
-<label name="location">Location</label>
-<input type="text" name="location" value="{{plant.location}}">
-<label name="date">Found on Date:</label>
-<input type="date" name="date" value="{{plant.date}}">
-<label name="season">Season</label>
-<input type="text" name="season" value="{{plant.season}}">
-<button type="submit">Edit Plant</button>
-</form>
+<section id="edit-post" class="p-3 signup-page">
+  <div class="container-fluid signup-form max-w col-md-4 p-3">
+    <h2>Edit your post here!</h2>
+    <form action="/editPost/{{plant.id}}" method="POST" enctype="multipart/form-data">
+
+      <div class="mb-3">
+        <label class="form-label">Name of the plant:</label>
+        <input type="text" class="form-control" name="name" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Where did you find it?</label>
+        <input type="text" class="form-control" name="location" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">On what date did you find it?</label>
+        <input type="date" class="form-control mt-2" name="date" />
+      </div>
+
+
+      <div class="mb-3">
+        <label class="form-label">What season in your hemisphere?</label>
+        <input type="text" class="form-control mt-2" name="season" />
+      </div>
+
+
+      <div class="mb-3">
+        <label class="form-label">Describe your find:</label>
+        <input type="text" class="form-control mt-2" name="description" />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Share a photo of the plant:</label>
+        <input class="form-control" type="file" name="plantImg">
+      </div>
+
+      <div class="btn-container">
+        <button type="submit" class="btn btn-light w-25">Submit</button>
+      </div>
+    
+
+
+    </form>
+  </div>
+</section>

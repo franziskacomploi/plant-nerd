@@ -1,21 +1,41 @@
-<div class="plant-post">
-<div>{{plant.name}}</div>
-  <div>{{plant.location}}</div>
-  <div>{{plant.description}}</div>
-  <img src={{plant.plantImg}} />
-  <div>{{plant.foundOnDate}}</div>
-  <div>{{plant.season}}</div>
-  <div>{{plant.author.username}}</div>
- {{#each plant.comments}}
- <div>{{title}}</div>
- <div>{{textField}}</div>
- <div>{{theAuthor.username}}</div>
- {{/each}}
- <form action="/plants/{{plant._id}}/comment" method="POST">
- <label name="title">Your Title:</label>
- <input type="text" name="title">
- <label name="textField">Your Text:</label>
- <input type="text" name="textField">
- <button type="submit">Submit Comment</button>
- </form>
+<section id="plant-details" class="p-2">
+
+  <div class="plants-div main-2 p-3 m-0 col-s-12 col-md-6">
+    <div class="plant-card p-2" style="width: 20rem;">
+      <img src={{plant.plantImg}} class="card-img-top mb-2" alt="Plant Photo">
+      <h5 class="card-title px-3">{{plant.name}}</h5>
+      <p class="card-text">{{plant.location}}</p>
+      <p class="card-text">{{plant.foundOnDate}}</p>
+      <p class="card-text">{{plant.season}}</p>
+      <p class="card-text">{{plant.description}}</p>
+      <p class="card-text">{{plant.author.username}}</p>
+    </div>
   </div>
+
+  <div class="comments-div col-s-12 col-md-6">
+    <div class="create-comment p-3 ms-3 mb-3">
+      <h4>Do you have anything to add?</h4>
+      <form action="/plants/{{plant._id}}/comment" class="comment-form" method="POST">
+        <label name="title">Title</label>
+        <input type="text" name="title" placeholder="Incredible!">
+        <br>
+        <label name="textField">Text</label>
+        <input type="text" name="textField" placeholder="I wish i was there!"><br>
+        <div class="btn-container">
+          <button type="submit" class="btn btn-dark">Submit Comment</button>
+        </div>
+      </form>
+    </div>
+    <div class="comments ms-3">
+      {{#each plant.comments}}
+      <div class="comment p-2">
+      <div class="comment-title">{{title}}</div>
+      <div class="comment-text">{{textField}}</div>
+      <div class="comment-author">{{theAuthor.username}}</div>
+      </div>
+      {{/each}}
+      </div>
+    </div>
+
+  </div>
+</section>
