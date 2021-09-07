@@ -8,7 +8,7 @@
       <p class="card-text">{{plant.foundOnDate}}</p>
       <p class="card-text">{{plant.season}}</p>
       <p class="card-text">{{plant.description}}</p>
-      <p class="card-text">{{plant.author.username}}</p>
+      <a href="/plants/{{plant.author._id}}/author" class="card-author">{{plant.author.username}}</a>
     </div>
   </div>
 
@@ -31,7 +31,7 @@
       <div class="comment p-2">
       <div class="comment-title">{{title}}</div>
       <div class="comment-text">{{textField}}</div>
-      <div class="comment-author">{{theAuthor.username}}</div>
+      <a href="" class="comment-author">{{theAuthor.username}}</a>
       </div>
       {{/each}}
       </div>

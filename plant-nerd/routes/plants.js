@@ -56,4 +56,15 @@ router.post('/plants/:id/comment', redirectLoggedIn, (req, res, next) => {
     });
 });
 
+
+
+
+
+// router.get('/plants/:id/author', redirectLoggedIn, (req, res) => {
+//   const authorId = req.params.id;
+
+//   console.log(authorId)
+//   res.render(`/insidePlants/userProfile/${authorId}`);
+// });
+
 module.exports = router;
