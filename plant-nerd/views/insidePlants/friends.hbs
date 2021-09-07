@@ -1,20 +1,18 @@
-<div id="friends" class="p-2">
+<section id="friends">
   <h2>Find friends!</h2>
 
-  <div class="friends-div main-2 p-3 m-0">
-    {{#each users}}
-    <div class="friend-card m-2 p-2 col-s-12 col-md-6" style="width: 20rem;">
+  <div class="friends-div container-fluid m-2 w-auto row main-2">
 
-      <img src={{profilePic}} class="card-img-top mb-2" alt="Plant Photo">
-      
-      <h5 class="card-title px-3">{{username}}</h5>
-   
-      <form action="/addFriend/{{_id}}" method="POST">
-        <button type="submit" class="btn btn-dark">Add as friend</button>
-      </form>
-      
+          {{#each users}}
+          <div class="friend-card p-2 m-2 col-sm-3 col-6" style="width: 20rem;">
+            <img src={{profilePic}} class="card-img-top mb-2" alt="Profile Photo">
+            
+            <h5 class="card-title px-3">{{username}}</h5>
+            <form action="/addFriend/{{_id}}" method="POST">
+              <button type="submit" class="btn btn-dark">Add as friend</button>
+            </form>
+          </div>
+          {{/each}}
+
   </div>
-    {{/each}}
-</div>
-
- 
+</section>

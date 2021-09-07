@@ -19,12 +19,17 @@ router.post('/plants/create', fileUploader.single('plantImg'), (req, res) => {
     location,
     date,
     season,
-    plantImg: req.file.path,
+    plantImg: req.file
+    ? req.file.path
+    : '/styles/images/logo1.png',
   }).then(() => res.redirect('/'));
 });
 
 router.get('/plants/:id', redirectLoggedIn, (req, res) => {
   const id = req.params.id;
+
+
+
   Plant.findById(id)
     .populate('author')
     .populate({
@@ -36,8 +41,14 @@ router.get('/plants/:id', redirectLoggedIn, (req, res) => {
       },
     })
     .then((plant) => {
+      let d = new Date(plant.foundOnDate);
+      let getDate = d.getDate();
+      let getMonth = d.getMonth() + 1;
+      let getYear = d.getFullYear();
+      let foundDate = `${getDate}.${getMonth}.${getYear}`;
       res.render('insidePlants/posts/plantDetails', {
         plant: plant,
+        foundDate,
       });
     });
 });
