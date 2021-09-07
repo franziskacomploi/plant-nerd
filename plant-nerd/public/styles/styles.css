@@ -261,7 +261,7 @@ footer a {
 
 /* PLANTS */
 
-.plants-div {
+.plant-div {
     display: flex;
     justify-content: space-evenly;
 }
