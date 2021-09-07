@@ -12,6 +12,7 @@ router.get('/plants/create', redirectLoggedIn, (req, res, next) => {
 
 router.post('/plants/create', fileUploader.single('plantImg'), (req, res) => {
   const {name, description, location, date, season} = req.body;
+  const author = req.session.currentUser._id;
 
   Plant.create({
     name,
@@ -20,6 +21,7 @@ router.post('/plants/create', fileUploader.single('plantImg'), (req, res) => {
     date,
     season,
     plantImg: req.file.path,
+    author,
   }).then(() => res.redirect('/'));
 });
 
