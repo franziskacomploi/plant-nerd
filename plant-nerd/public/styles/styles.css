@@ -61,6 +61,13 @@ body {
     text-align: center;
 }
 
+/* GLOBALS */
+
+.container-div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 /* ERROR + NOT FOUND */
 
 #error {
@@ -261,11 +268,6 @@ footer a {
 
 /* PLANTS */
 
-.plant-div {
-    display: flex;
-    justify-content: space-evenly;
-}
-
 .plant-card {
     background-color: #A3B4B3;
     color: #3C405C;
@@ -344,10 +346,6 @@ footer a {
     background-color: #3C405C;
     color: #9D98C1;
     text-align: center;
-}
-
-.friends-div {
-    display: flex;
 }
 
 .friend-card {
