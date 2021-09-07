@@ -24,10 +24,17 @@
         </a>
 
         {{#if isLoggedIn}}
-        <form method="POST" action="/plantSearch" class="d-flex m-0">
-          <input class="form-control me-2 w-200" type="search" placeholder="Search plants" aria-label="Search" name="searchPlant">
-          <button class="btn btn-dark" type="submit">Search</button>
-        </form>
+        {{#if friendSearch}}
+          <form method="POST" action="/friendSearch" class="d-flex m-0">
+            <input class="form-control me-2 w-200" type="search" placeholder="Search friends" aria-label="Search" name="searchFriend">
+            <button class="btn btn-dark" type="submit">Search</button>
+          </form>
+        {{else}}
+          <form method="POST" action="/plantSearch" class="d-flex m-0">
+            <input class="form-control me-2 w-200" type="search" placeholder="Search plants" aria-label="Search" name="searchPlant">
+            <button class="btn btn-dark" type="submit">Search</button>
+          </form>
+        {{/if}}
         <div class="loggedin-links">
           <a href="/explore" class="me-3">Explore</a>
           <a href="/plants/create" class="me-3">Create a Plant</a>
