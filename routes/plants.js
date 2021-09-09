@@ -81,16 +81,30 @@ router.post('/plants/:id/comment', redirectLoggedIn, (req, res) => {
 
 router.get('/plants/:id/userProfile', redirectLoggedIn, (req, res) => {
   const authorId = req.params.id;
-  console.log('authorId ===>', authorId)
+
+  // Plant.find({author: authorID})
+  //   .then((posts) => {
+  //       return posts
+  //   })
+  
+  
   User.findById(authorId)
-    .then(() => {
-      
+    .then((userFromDB) => {
+      let d = new Date(userFromDB.birthday);
+      let birthDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`;
       res.render('insidePlants/userProfile', {
-        _id: authorId,
+        user: userFromDB,
+        birthDate,
+        posts,
       })
-     
-    })
+  })
+
+
+
 });
+
+
+
 
 
 module.exports = router;
