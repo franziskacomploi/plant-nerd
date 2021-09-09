@@ -12,6 +12,10 @@ By Julia Häußler & Franziska Pendzialek
 
 - cd into the project file
 
+## Live View on Heroku
+
+https://plant-nerd.herokuapp.com/
+
 ## Presentation
 
 Here's the link to our presentation: https://docs.google.com/presentation/d/1xg9OOQ7FKjCKEiwmNZu-dBIUab8GXKuN8zGmUVDjkso/edit?usp=sharing
