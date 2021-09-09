@@ -10,9 +10,16 @@ router.get('/', (req, res, next) => {
   Plant.find()
     .sort({foundOnDate: -1})
     .limit(2)
-    .then((result) => {
+
+    .then((plants) => {
+
+      plants.forEach(plant => {
+        const d = new Date(plant.foundOnDate);
+        plant.foundDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getYear()}`;
+      })
+
       res.render('main', {
-        plants: result,
+        plants: plants,
       });
     });
 });
@@ -24,6 +31,12 @@ router.get('/explore', redirectLoggedIn, (req, res, next) => {
     .sort({foundOnDate: -1})
     .populate('author')
     .then((plants) => {
+
+      plants.forEach(plant => {
+        const d = new Date(plant.foundOnDate);
+        plant.foundDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getYear()}`;
+      })
+
       res.render('insidePlants/plantsMain', {
         userInSession: req.session.currentUser,
         plants: plants,

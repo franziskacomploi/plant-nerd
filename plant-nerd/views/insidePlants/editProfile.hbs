@@ -1,17 +1,39 @@
-<h2>Edit your profile information</h2>
+<section id="edit-profile" class="p-3 signup-page">
+  <div class="container-fluid signup-form max-w col-md-4 p-3">
+    <h2>Edit your profile information here!</h2>
+    <form action="/editProfile/{{userInSession._id}}" method="POST" enctype="multipart/form-data">
 
+      <div class="mb-3">
+        <label class="form-label">Your favourite plant:</label>
+        <input type="text" class="form-control mt-2" name="favPlant" value="{{ userInSession.favPlant }}" />
+      </div>
 
+      <div class="mb-3">
+        <label class="form-label">Your first name:</label>
+        <input type="text" class="form-control mt-2" name="firstName" id="input-firstName" value="{{userInSession.firstName}}" />
+      </div>
 
-<form action="/editProfile/{{userInSession._id}}" method="post" enctype="multipart/form-data">
-    Your favourite plant: <input type="text" class="form-control mt-2" name="favPlant" id="input-favPlant" value="{{ userInSession.favPlant }}" /><br>
-    Your first name: <input type="text" class="form-control mt-2" name="firstName" id="input-firstName" value="{{userInSession.firstName}}" /><br>
-    Your birthday: <input type="date" class="form-control mt-2" name="birthday" id="input-birthday" /><br>
-    Your description: <input class="form-control mt-2" name="description" id="input-description" value="{{ userInSession.description }}" />
-    Your best selfie: <input class="form-control" type="file" name="profilePic" >
-    <div class="btn-container">
+      <div class="mb-3">
+        <label class="form-label">Your birthday:</label>
+        <input type="date" class="form-control mt-2" name="birthday" id="input-birthday" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Your description:</label>
+        <input class="form-control mt-2" name="description" id="input-description" value="{{ userInSession.description }}" />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Your best selfie:</label>
+        <input class="form-control" type="file" name="profilePic">
+      </div>
+
+      <div class="btn-container">
         <button type="submit" class="btn btn-light w-25">Submit</button>
-    </div>
-</form>
+      </div>
+    </form>
+  </div>
+</section>
 
     
 

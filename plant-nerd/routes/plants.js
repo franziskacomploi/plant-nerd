@@ -11,14 +11,21 @@ router.get('/plants/create', redirectLoggedIn, (req, res, next) => {
 });
 
 router.post('/plants/create', fileUploader.single('plantImg'), (req, res) => {
-  const {name, description, location, date, season} = req.body;
+  const {name, description, location, foundOnDate, season} = req.body;
   const author = req.session.currentUser._id;
+
+  if (!name || !location || !foundOnDate) {
+    res.render('insidePlants/posts/createPost', {
+      errorMessage: 'You need a name, a location and a date to create a post.',
+    });
+    return;
+  }
 
   Plant.create({
     name,
     description,
     location,
-    date,
+    foundOnDate,
     season,
     plantImg: req.file ? req.file.path : '/styles/images/logo1.png',
     author,
@@ -50,10 +57,7 @@ router.get('/plants/:id', redirectLoggedIn, (req, res) => {
     })
     .then((plant) => {
       let d = new Date(plant.foundOnDate);
-      let getDate = d.getDate();
-      let getMonth = d.getMonth() + 1;
-      let getYear = d.getFullYear();
-      let foundDate = `${getDate}.${getMonth}.${getYear}`;
+      let foundDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getYear()}`;
       res.render('insidePlants/posts/plantDetails', {
         plant: plant,
         foundDate,
@@ -75,11 +79,18 @@ router.post('/plants/:id/comment', redirectLoggedIn, (req, res) => {
     });
 });
 
-// router.get('/plants/:id/author', redirectLoggedIn, (req, res) => {
-//   const authorId = req.params.id;
+router.get('/plants/:id/userProfile', redirectLoggedIn, (req, res) => {
+  const authorId = req.params.id;
+  console.log('authorId ===>', authorId)
+  User.findById(authorId)
+    .then(() => {
+      
+      res.render('insidePlants/userProfile', {
+        _id: authorId,
+      })
+     
+    })
+});
 
-//   console.log(authorId)
-//   res.render(`/insidePlants/userProfile/${authorId}`);
-// });
 
 module.exports = router;
