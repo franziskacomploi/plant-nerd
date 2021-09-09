@@ -15,7 +15,7 @@
 
       <div class="mb-3">
         <label class="form-label">On what date did you find it?</label>
-        <input type="date" class="form-control mt-2" name="date" />
+        <input type="date" class="form-control mt-2" name="foundOnDate" />
       </div>
 
 
@@ -39,7 +39,9 @@
         <button type="submit" class="btn btn-light w-25">Submit</button>
       </div>
     
-
+      {{#if errorMessage}}
+        <p class="error my-5">{{errorMessage}}</p>
+      {{/if}}
 
     </form>
   </div>

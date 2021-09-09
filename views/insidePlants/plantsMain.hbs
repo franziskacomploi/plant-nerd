@@ -11,7 +11,7 @@
       <p class="card-text">{{foundDate}}</p>
       <p class="card-text">{{season}}</p>
       <p class="card-text">{{description}}</p>
-      <p class="card-text">{{author.username}}</p>
+      <a href="/plants/{{author._id}}/userProfile" class="card-text">{{author.username}}</p>
       <a href="/plants/{{_id}}" class="btn btn-light">Details & Comments</a>
     </div>
     {{/each}}

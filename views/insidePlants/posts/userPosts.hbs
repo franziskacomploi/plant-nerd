@@ -1,17 +1,31 @@
-<h2>See all your posts here: </h2>
-<div class="container">
-{{#each posts}}
-<div class="plant-post">
-  <div>{{name}}</div>
-  <div>{{location}}</div>
-  <div>{{description}}</div>
-  <img src={{plantImg}} />
-  <div>{{foundOnDate}}</div>
-  <div>{{season}}</div>
-  <form method="POST" action="/deletePost/{{_id}}">
-    <button type="Submit">Delete</button>
-  </form>
-  <a href="/editPost/{{_id}}">Edit</a>
-</div>
-{{/each}}
-</div>
+<section id="my-posts">
+  <h2>See all your posts here!</h2>
+
+  <div class="container-div container-fluid m-2 w-auto row main-2">
+    {{#each posts}}
+    <div class="plant-card p-2 m-2 col-sm-3 col-6" style="width: 20rem;">
+      <img src={{plantImg}} class="card-img-top mb-2" alt="Plant Photo">
+      <h5 class="card-title px-3">{{name}}</h5>
+      
+      <h5 class="card-text">{{location}}</h5>
+      <h5 class="card-text">{{foundDate}}</h5>
+      <p class="card-text">{{season}}</hp>
+      <p class="card-text">{{description}}</p>
+
+      <div class="profile-action-container">
+        <div class="profile-action p-3">
+          <a href="/editPost/{{_id}}" class="btn btn-light p-2">Edit post</a>
+        </div>
+        <form method="POST" action="/deletePost/{{_id}}" class="profile-action p-3">
+          <button type="submit" class="btn btn-light p-2">Delete post</button>
+        </form>
+      </div>
+    
+    </div>
+    {{/each}}
+
+  </div>
+</section>
+
+
+

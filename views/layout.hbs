@@ -12,9 +12,6 @@
 
 
   <body>
-
-    
-
     <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container-fluid d-flex nav">
 
@@ -26,8 +23,8 @@
         {{#if isLoggedIn}}
         {{#if friendSearch}}
           <form method="POST" action="/friendSearch" class="d-flex m-0">
-            <input class="form-control me-2 w-200" type="search" placeholder="Find friends here..." aria-label="Search" name="searchFriend">
-            <button class="btn btn-dark" type="submit">Search Friends</button>
+            <input class="form-control me-2" type="search" placeholder="Find friends here..." aria-label="Search" name="searchFriend">
+            <button class="btn btn-dark btn-friends" type="submit">Search Friends</button>
           </form>
         {{else}}
           <form method="POST" action="/plantSearch" class="d-flex m-0">
@@ -59,9 +56,12 @@
 
     {{{body}}}
 
-    {{!-- <footer class="">
-      <a href="/" class="p-2 btn btn-contact">Contact</a>
-      <p class="p-2 m-0">2021 - Franziska Pendzialek & Julia Häußler</p>
+    {{!-- <footer>
+      <div class="footer-content">
+        <a href="/" class="p-2 btn btn-contact">Contact</a>
+        <p class="p-2 m-0">2021 - Franziska Pendzialek & Julia Häußler</p>
+      </div>
     </footer> --}}
+
   </body>
 </html>

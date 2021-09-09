@@ -9,6 +9,13 @@ router.get('/user/my-posts', redirectLoggedIn, (req, res) => {
   const userID = req.session.currentUser._id;
 
   Plant.find({author: userID}).then((posts) => {
+
+    posts.forEach(post => {
+      const d = new Date(post.foundOnDate);
+      post.foundDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getYear()}`;
+      console.log('foundDate ===>', post.foundDate)
+    })
+
     res.render('insidePlants/posts/userPosts', {
       posts: posts,
     });
@@ -30,27 +37,28 @@ router.get('/editPost/:id', redirectLoggedIn, (req, res, next) => {
   });
 });
 
+
 router.post(
-  '/editPost/:id',
-  fileUploader.single('plantImg'),
+  '/editPost/:id/',
+  fileUploader.single('plantPic'),
   redirectLoggedIn,
   (req, res, next) => {
     const id = req.params.id;
-    const {name, description, location, date, season} = req.body;
-
-    let updateValues = {
-      name,
-      description,
-      location,
-      date,
-      season,
+    const updatedPost = {
+      name: req.body.name,
+      description: req.body.description,
+      location: req.body.location,
+      season: req.body.season,
     };
 
+    if (req.body.date) {
+      updatedPost.date = req.body.date;
+    }
     if (req.file) {
-      updateValues.plantImg = req.file.path;
+      updatedUser.profilePic = req.file.path;
     }
 
-    Plant.findByIdAndUpdate(id, updateValues).then(() => {
+    Plant.findByIdAndUpdate(id, updatedPost, {new: true}).then(() => {
       res.redirect('/user/my-posts');
     });
   }

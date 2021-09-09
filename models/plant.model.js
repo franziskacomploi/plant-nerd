@@ -11,7 +11,10 @@ const PlantSchema = new Schema({
     type: String,
     required: true,
   },
-  foundOnDate: Date,
+  foundOnDate: {
+    type: Date,
+    required: true,
+  },
   season: String,
   author: {type: Schema.Types.ObjectId, ref: 'User'},
   comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
