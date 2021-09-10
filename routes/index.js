@@ -34,7 +34,7 @@ router.get('/explore', redirectLoggedIn, (req, res, next) => {
 
       plants.forEach(plant => {
         const d = new Date(plant.foundOnDate);
-        plant.foundDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getYear()}`;
+        plant.foundDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`;
       })
 
       res.render('insidePlants/plantsMain', {

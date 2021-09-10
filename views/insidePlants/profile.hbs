@@ -29,7 +29,7 @@
         {{!-- <h4 class="card-title px-3 mx-2">Your friends!</h4> --}}
         {{#each user.friends}}
         <div class="one-friend p-3 m-2">
-            <a href="/plants/{{author._id}}/userProfile" class="card-title px-3">{{username}}</a>
+            <a class="link" href='/plants/{{_id}}/userProfile' class="card-title px-3">{{username}}</a>
             <img src="{{profilePic}}">
         </div>
         {{/each}}

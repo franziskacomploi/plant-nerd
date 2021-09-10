@@ -57,7 +57,7 @@ router.get('/plants/:id', redirectLoggedIn, (req, res) => {
     })
     .then((plant) => {
       let d = new Date(plant.foundOnDate);
-      let foundDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getYear()}`;
+      let foundDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`;
       res.render('insidePlants/posts/plantDetails', {
         plant: plant,
         foundDate,
@@ -95,12 +95,9 @@ router.get('/plants/:id/userProfile', redirectLoggedIn, (req, res) => {
       res.render('insidePlants/userProfile', {
         user: userFromDB,
         birthDate,
-        posts,
+        // posts,
       })
   })
-
-
-
 });
 
 

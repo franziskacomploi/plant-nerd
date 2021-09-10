@@ -12,8 +12,7 @@ router.get('/user/my-posts', redirectLoggedIn, (req, res) => {
 
     posts.forEach(post => {
       const d = new Date(post.foundOnDate);
-      post.foundDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getYear()}`;
-      console.log('foundDate ===>', post.foundDate)
+      post.foundDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`;
     })
 
     res.render('insidePlants/posts/userPosts', {

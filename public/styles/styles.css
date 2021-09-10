@@ -64,6 +64,14 @@ body {
     justify-content: space-evenly;
 }
 
+.link {
+    color: #324628;
+}
+
+.link:hover {
+    color: #3C405C;
+}
+
 /* ERROR + NOT FOUND */
 
 .error {
@@ -265,7 +273,7 @@ footer a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: #3C405C;
+    background: #9D98C1;
     width: 200px;
     border-radius: 5%;
 }
@@ -351,6 +359,12 @@ footer a {
     display: flex;
 }
 
+.no-posts {
+    text-align: center;
+    color:#9D98C1;
+    background-color: #3C405C;
+}
+
 .create-comment{
     border: 5px solid #9D98C1;
     color: #3C405C;
@@ -401,4 +415,9 @@ footer a {
     align-items: center;
     text-align: center;
     border-radius: 1rem;
+}
+
+.friend-profile {
+    display: flex;
+    justify-content: center;
 }
