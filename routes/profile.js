@@ -64,7 +64,7 @@ router.get('/deleteProfile', redirectLoggedIn, (req, res) => {
   });
 });
 
-router.post('/deleteProfile/:id', redirectLoggedIn, (req, res) => {
+router.post('/deleteProfile/:id/delete', redirectLoggedIn, (req, res) => {
   const id = req.params.id;
   User.findByIdAndDelete(id).then(() => {
     req.session.destroy();

@@ -1,5 +1,6 @@
-<section id="profile" class="p-3">
-    <div class="profile-card p-3 col-md-6">
+<section id="profile" class="footer-space p-3">
+    <div class="profile-wrapper">
+        <div class="profile-card p-3">
         {{#if user}}
             <h1 class="card-title px-3">Hi, {{user.username}}!</h1>
             {{#if user.firstName}}
@@ -25,7 +26,7 @@
         {{/if}}
     </div>
 
-    <div class="profile-friends p-3 col-md-6">
+    <div class="profile-friends">
         {{!-- <h4 class="card-title px-3 mx-2">Your friends!</h4> --}}
         {{#each user.friends}}
         <div class="one-friend p-3 m-2">
@@ -34,5 +35,9 @@
         </div>
         {{/each}}
     </div>
+
+
+    </div>
+
 
 </section>
