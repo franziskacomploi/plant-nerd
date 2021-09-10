@@ -1,6 +1,7 @@
 <section id="my-posts">
-  <h2>See all your posts here!</h2>
+  <h2 class="pb-1">See all your posts here!</h2>
 
+  {{#if posts }}
   <div class="container-div container-fluid m-2 w-auto row main-2">
     {{#each posts}}
     <div class="plant-card p-2 m-2 col-sm-3 col-6" style="width: 20rem;">
@@ -20,11 +21,16 @@
           <button type="submit" class="btn btn-light p-2">Delete post</button>
         </form>
       </div>
-    
     </div>
     {{/each}}
-
   </div>
+  {{else}}
+  <div class="no-posts py-4">
+    <h3>... after you created some.</h3>
+    <h4>Click here to create your first post:</h4>
+    <a href='/plants/create' class="btn btn-light mt-2">Let's go!</a>
+  </div>
+  {{/if}}
 </section>
 
 
