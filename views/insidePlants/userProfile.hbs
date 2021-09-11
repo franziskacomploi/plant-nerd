@@ -1,8 +1,8 @@
 <section id="profile" class="footer-space p-3">
-    <div class="profile-wrapper">
+    <div class="profile-wrapper-2">
         {{#each plants}}
         {{#if @first}}
-        <div class="profile-card p-3">
+        <div class="profile-card profile-relative profile-left p-3">
             
             <h1 class="card-title px-3">Welcome to {{author.username}}'s page!</h1>
             {{#if author.firstName}}
@@ -20,18 +20,21 @@
                     <button type="submit" class="btn btn-dark">Add as friend</button>
                 </form>
             </div>          
-     
+
         </div>
         {{/if}}
-        <div class="profile-friends">
-        {{!-- <h4 class="card-title px-3 mx-2">This user's posts!</h4> --}}
-        
-            <div class="one-friend p-3 m-2">
-                <a class="link" href='/plants/{{_id}}' class="card-title px-3">{{name}}</a>
-                <img src="{{plantImg}}">
-            </div>
-        
-        </div>
         {{/each}}
+        
+        <div class="profile-posts">
+            {{#each plants}}
+            {{!-- <h4 class="card-title px-3 mx-2">This user's posts!</h4> --}}
+            
+                <div class="one-friend p-3 m-2">
+                    <a class="link" href='/plants/{{_id}}' class="card-title px-3">{{name}}</a>
+                    <img src="{{plantImg}}">
+                </div>
+            
+            {{/each}}
+        </div>
     </div>
 </section>
