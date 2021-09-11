@@ -72,8 +72,5 @@ router.post('/deleteProfile/:id/delete', redirectLoggedIn, (req, res) => {
   });
 });
 
-// SHOW FRIENDS
-
-// })
 
 module.exports = router;

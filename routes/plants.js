@@ -79,29 +79,23 @@ router.post('/plants/:id/comment', redirectLoggedIn, (req, res) => {
     });
 });
 
+
 router.get('/plants/:id/userProfile', redirectLoggedIn, (req, res) => {
   const authorId = req.params.id;
 
-  // Plant.find({author: authorID})
-  //   .then((posts) => {
-  //       return posts
-  //   })
-  
-  
-  User.findById(authorId)
-    .then((userFromDB) => {
-      let d = new Date(userFromDB.birthday);
+  Plant.find({author: authorId})
+    .populate('author')
+    .then((result) => {
+      let d = new Date(result[0].author.birthday);
       let birthDate = `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`;
+
+
       res.render('insidePlants/userProfile', {
-        user: userFromDB,
+        plants: result,
         birthDate,
-        // posts,
-      })
-  })
+      });
+    });
 });
-
-
-
 
 
 module.exports = router;
